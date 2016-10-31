@@ -25,8 +25,8 @@ keystone.init({
 	'user model': 'User',
 	'adminui custom styles': 'customAdmin/index.less',
 	'wysiwyg additional options': {
-		paste_as_text: true,
-		plugins: 'paste',
+		// paste_as_text: true,
+		// plugins: 'paste',
 	}
 });
 
@@ -41,6 +41,7 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
+	// inflect: ['equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep', 'jeans', 'sushi', 'akteure', 'programm', 'veranstaltungen', 'unterlagen'],
 });
 
 // Load your project's Routes
@@ -57,9 +58,9 @@ keystone.set('nav', {
 		'Unterlagen',
 		'Media',
 	],
-
 	system: 'users',
-	testing: ['posts', 'post-categories', 'galleries'],
+	// testing: ['posts', 'post-categories', 'galleries'],
+
 	// posts: ['posts', 'post-categories'],
 	// galleries: 'galleries',
 	// users: 'users',

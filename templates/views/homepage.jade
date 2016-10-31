@@ -1,0 +1,22 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		+home-button()
+		h1.title= locals.title
+
+block content
+	.content
+		each result in data.results
+			.content-padded.home
+				if result.image.exists
+					.home-image.center
+						img(src="/images/logo_gfx_only.svg")
+				h3.center= result.title
+				h4.center.mb15= result.subtitle
+
+		nav.menu.home
+			each link in navLinks
+				button.btn-link.menu-item
+					a(href=link.href, data-transition="slide-in")= link.label
+						img(src="/images/menu/" + link.label.toLowerCase() + ".svg")

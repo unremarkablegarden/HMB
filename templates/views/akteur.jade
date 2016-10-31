@@ -1,0 +1,22 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		a(href="/programm").icon.icon-left-nav.pull-left
+		+home-button()
+		+popover-title(data.akteur.name)
+				
+block content
+	.content.akteur
+		//- .content-padded
+		h3.content-padded= data.akteur.name
+		div.table-view
+			div.table-view-cell
+				!= data.akteur.bio
+
+//- title: { type: String, required: true, index: true, initial: true },
+//- number: { type: Types.Number, label: 'Antrag Nr.' },
+//- 	type: { type: Types.Select, options: 'resolutionen, referenzen', default: 'resolutionen', initial: true, index: true },
+//- textNumbered: { type: Types.Code, language: 'html', label: 'Text with numbered lines' },
+//- text: { type: Types.Html, wysiwyg: true, label: 'Info' },
+//- date: { type: Types.Date, default: Date.now }

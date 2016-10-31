@@ -1,0 +1,50 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		+back-button('/')
+		+home-button()
+		+popover-title(locals.title)
+
+		nav.bar.bar-tab
+			.tab-item.photos-tab
+				a(href="#photos")
+					span.icon.ion-ios-photos-outline
+					span.tab-label Photos
+			.tab-item.videos-tab
+				a(href="#videos")
+					span.icon.ion-ios-videocam-outline
+					span.tab-label Videos
+
+
+block content
+	.content.media
+		.welcome.open
+			.big-icon
+				img(src="/images/media.svg")
+				h1 Media
+		
+		div.photos
+			each result, i in data.results
+				if result.type == 'photos'
+					div.table-view.card.photo
+						- var src = result._.heroImage.fit(640, 640)
+						a(href="#").gallery
+							img(src=src).hero
+
+		div.videos
+			each result, i in data.results
+				if result.type == 'video'
+					//- div.table-view-cell.normal
+					- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
+					- var W = 288
+					- var H = W * 0.5625
+					- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+					div.table-view.card.video
+						!= embedCode
+			
+//- title: { type: String, required: true, index: true, initial: true },
+//- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },
+//- heroImage: { type: Types.CloudinaryImage, dependsOn: { type: 'photos' } },
+//- images: { type: Types.CloudinaryImages, dependsOn: { type: 'photos' } },
+//- vimeoUrl: { type: Types.Url, dependsOn: { type: 'video' }, label: 'Vimeo URL'  }

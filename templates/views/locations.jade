@@ -1,0 +1,41 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		+back-button('/')
+		+home-button()
+		+popover-title(locals.title)
+				
+block content
+	.content.locations
+		- var firstRes = data.results[0]
+		if firstRes.map.exists
+			- var src = firstRes._.map.crop(1024, 512, { effect: "grayscale" })
+			//- a(data-ignore="push", href=firstRes.link)
+			div(class="map", style="background-image: url(" + src + ")")
+				img(src=src)
+
+			
+				//- firstRes._.map.src()
+				//- fit(1024,{gravity:"face",effect:"grayscale"}))
+		div.table-view.card
+			each result, i in data.results
+				div.table-view-cell.table-view-divider
+					h5= result.name						
+					- var link = result.link
+					if link.length
+						a(href="#{result.link}", target="_blank").btn.btn-primary.btn-outlined
+							//- span.icon.ion-map 
+							span.icon.ion-ios-location
+							.Hspacer.sm
+							span Karte	
+				div.table-view-cell.normal
+					!= result.info
+
+
+					
+//- name: { type: String, required: true, index: true, initial: true, label: 'Location name' },
+//- type: { type: Types.Select, options: 'main, outside, room', default: 'main', index: true },
+//- info: { type: Types.Html, wysiwyg: true, label: 'Info' },
+//- link: { type: Types.Url, label: 'Google Maps link' },
+//- map: { type: Types.CloudinaryImage, label: 'Map image' },

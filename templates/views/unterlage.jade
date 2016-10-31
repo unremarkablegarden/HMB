@@ -1,0 +1,23 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		+back-button('/unterlagen')
+		+home-button()
+		- var resolution = 'Resolution # ' + data.unterlage.number
+		+popover-title(resolution)
+				
+block content
+	.content.unterlage
+		//- .content-padded
+		h3.content-padded= data.unterlage.title
+		div.table-view
+			div.table-view-cell
+				code= data.unterlage.textNumbered
+
+//- title: { type: String, required: true, index: true, initial: true },
+//- number: { type: Types.Number, label: 'Antrag Nr.' },
+//- 	type: { type: Types.Select, options: 'resolutionen, referenzen', default: 'resolutionen', initial: true, index: true },
+//- textNumbered: { type: Types.Code, language: 'html', label: 'Text with numbered lines' },
+//- text: { type: Types.Html, wysiwyg: true, label: 'Info' },
+//- date: { type: Types.Date, default: Date.now }

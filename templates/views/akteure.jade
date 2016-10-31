@@ -1,22 +1,57 @@
 extends ../layouts/default
 
-block intro
-	.container
-		h1= title
-	
+block nav
+	header.bar.bar-nav
+		+back-button('/')
+		+home-button()
+		+popover-title(locals.title)
+		
+	nav.bar.bar-tab
+		.tab-item.active.backToTop
+			span.icon.icon-up-nav
+			span.tab-label Top
+
 block content
-	.container
-		each result in data.results
-			.media
-				.media-left
-					//- .media-object
-					if result.image.exists
-						img(src=result._.image.thumbnail(340,340,{ gravity: "face" })).media-object
-					else
-						.no-image
-							.text
-							
-										
-				.media-body
-					h2.media-heading= result.name
-					!= result.bio
+	.content
+		.index.akteure
+			each result, i in data.results
+				if result.image.exists
+					- var src = result._.image.thumbnail(340,340,{gravity:"face",effect:"grayscale"})
+					a(data-ignore="push", href="#a" + i)
+						div(class="index-item", style="background-image: url(" + src + ")")
+							span
+								!= result.name
+				else
+					a(data-ignore="push", href="#a" + i)
+						div(class="index-item")
+							span
+								!= result.name
+	
+			.clear
+			.spacer
+		.people
+			each result, i in data.results
+				a(name="a" + i)
+				div.table-view.card
+					div.table-view-cell.table-view-divider
+						h5= result.name
+					div.table-view-cell.normal
+						if result.image.exists
+							img(src=result._.image.thumbnail(340,340,{ gravity: "face" })).portrait
+						p!= result.bio
+											
+		//- .clear
+		//- .spacer
+		//- .body.content-padded
+		//- 	each result, i in data.results
+		//- 		.sep
+		//- 		.person
+		//- 			a(name="a" + i)
+		//- 			if result.image.exists
+		//- 				img(src=result._.image.thumbnail(340,340,{ gravity: "face" })).portrait
+		//- 			else
+		//- 				div.portrait.no-image
+		//- 					| &nbsp;
+		//- 			h4.name= result.name
+		//- 			.bio
+		//- 				p!= result.bio

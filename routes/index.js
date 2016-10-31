@@ -24,6 +24,7 @@ var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
 // keystone.pre('routes', middleware.initErrorHandlers);
+// keystone.pre('routes', middleware.pjax);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
@@ -35,17 +36,23 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
-	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
+	// app.get('/', routes.views.index);
+	app.get('/', routes.views.homepage);
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.get('/blog/post/:post', routes.views.post);
+	// app.get('/gallery', routes.views.gallery);
 
-	app.get('/programm', routes.views.akteure);
-	app.get('/locations', routes.views.akteure);
+	app.get('/programm', routes.views.programm);
+	app.get('/locations', routes.views.locations);
 	app.get('/akteure', routes.views.akteure);
-	app.get('/veranstaltungen', routes.views.akteure);
-	app.get('/unterlagen', routes.views.akteure);
-	app.get('/media', routes.views.akteure);
+	app.get('/akteure/:akteur', routes.views.akteur);
+	app.get('/veranstaltungen', routes.views.veranstaltungen);
+	app.get('/unterlagen', routes.views.unterlagen);
+	app.get('/unterlagen/:unterlage', routes.views.unterlage);
+	app.get('/media', routes.views.media);
+
+
+
 
 	// app.get('/programm', routes.views.programm);
 	// app.get('/locations', routes.views.locations);

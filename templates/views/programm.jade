@@ -1,0 +1,56 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav		
+		+back-button('/')
+		+home-button()
+		+popover-title(locals.title)
+
+	nav.bar.bar-tab
+		.tab-item.active
+			a(href="#list-view")
+				span.icon.ion-clipboard
+				span.tab-label Item view
+		.tab-item
+			a(href="#time-view")
+				span.icon.ion-clock
+				
+				span.tab-label Time view
+		.tab-item
+			a(href="/files/programm.pdf", target="_blank", data-ignore="push")
+				span.icon.ion-ios-printer-outline
+				span.tab-label Print
+
+
+block content
+	.content.programm
+		.welcome
+			.big-icon
+				span.ion-clipboard
+				h1 Programm
+		div.table-view.card
+			- var date = 'start'
+			each result, i in data.results
+				- newDate = String(result.date)
+				if date !== newDate
+					- date = newDate
+					div.table-view-cell.table-view-divider
+						h5= result._.date.moment().locale('de').format('Do MMMM')
+				div.table-view-cell.normal
+					div.pull-left.time
+						= result.start
+						if result.end.length
+							| -
+							= result.end
+					div.media-body
+						.program-title= result.title
+						p.more!= result.content
+				
+
+					
+//- title: { type: String, required: true, index: true, initial: true, label: 'Programmpunkt' },
+//- content: { type: Types.Html, wysiwyg: true, height: 150, label: 'Mehr text' },
+//- date: { type: Types.Date, initial: true, label: 'Datum', default: Date.now },
+//- start: { type: Types.Text, default: '12.00', initial: true, label: 'Startzeit'},
+//- end: { type: String, default: '13.00', initial: true, label: 'Endzeit' },
+//- akteure: { type: Types.Relationship, ref: 'Akteure', many: true, label: 'Leitung' },

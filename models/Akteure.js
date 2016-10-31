@@ -5,7 +5,13 @@ var Types = keystone.Field.Types;
  * User Model
  * ==========
  */
-var Akteure = new keystone.List('Akteure');
+var Akteure = new keystone.List('Akteure', {
+	map: { name: 'name' },
+	label: 'Akteure',
+	plural: 'Akteure',
+	autokey: { path: 'slug', from: 'name', unique: false },
+	slug: { path: 'slug', from: 'name', unique: true },
+});
 
 Akteure.add({
 	name: { type: String, required: true, index: true, initial: true },
@@ -16,7 +22,7 @@ Akteure.add({
 /**
  * Relationships
  */
-// Akteure.relationship({ ref: 'Programm', path: 'akteure', refPath: 'akteure' });
+Akteure.relationship({ ref: 'Programm', path: 'akteure', refPath: 'akteure' });
 
 /**
  * Registration

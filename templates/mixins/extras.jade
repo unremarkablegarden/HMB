@@ -1,0 +1,30 @@
+mixin home-button()
+  a(href="/" data-transition="fade").btn.pull-right.home-button
+    img(src="/images/logo_gfx_only.svg")
+
+mixin back-button(path)
+  a(href="#{path}" data-transition="fade").icon.icon-left-nav.pull-left
+
+mixin pop-over()
+  div#popover.popover
+    ul.table-view
+      each link in navLinks
+        li.table-view-cell
+          a(href=link.href, data-transition="fade")= link.label
+
+mixin popover-title(title)
+  a(href="#popover")
+    h1.title
+      div.Hspacer
+      = title + " "
+      span.icon.icon-caret
+
+mixin welcomeIcon(title, icon)
+  .welcome
+    span(class=icon)
+    h1.header= title
+
+mixin welcomeImage(title, image)
+  .welcome
+    img(src=image)
+    h1.header= title  

@@ -1,0 +1,10 @@
+extends ../layouts/default
+
+block content
+	.container
+		each result in data.results
+			if result.image.exists
+				img(src=result._.image.limit(340,340)).hero
+			h1= result.title
+			h2= result.subtitle
+			

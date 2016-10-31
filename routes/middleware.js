@@ -8,8 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
-
-
+// var barbajs = require('barba.js');
 /**
 	Initialises the standard view locals
 
