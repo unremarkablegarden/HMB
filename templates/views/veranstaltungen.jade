@@ -8,29 +8,26 @@ block nav
 				
 block content
 	.content.veranstaltungen
-		.welcome
-			.big-icon
-				img(src="/images/calendar.svg")
-				h1 Veranstaltungen
-		
+		+welcomeImage(locals.title, '/images/calendar.svg')
 		
 		- var type = null
 		each result, i in data.results
-			- var newType = String(result.type)
-			if type !== newType
-				- type = newType
-				if type == 'workshop'
-					- typeName = 'Workshops'
-				else
-					- typeName = result.typeOther
-				h3.heading.content-padded= typeName
+			//- - var newType = String(result.type)
+			//- if type !== newType
+			//- 	- type = newType
+			//- 	if type == 'workshop'
+			//- 		- typeName = 'Workshops'
+			//- 	else
+			//- 		- typeName = result.typeOther
+			//- 	h3.heading.content-padded= typeName
 			div.table-view.card
-				div.table-view-cell.table-view-divider
+				div.table-view-divider
 					h5= result.title
 				div.table-view-cell.table-view-divider
-					.meta
-						h5.gray
-							each leader in result.akteure
-								div= leader.name
+					each leader in result.akteure
+						!= leader.name
+				div.table-view-cell.table-view-divider
+					div.flex-inline
+						!= result.location.info
 				div.table-view-cell.normal
 					!= result.info			

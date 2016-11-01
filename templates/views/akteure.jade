@@ -28,7 +28,7 @@ block content
 								!= result.name
 	
 			.clear
-			.spacer
+		.spacer
 		.people
 			each result, i in data.results
 				a(name="a" + i)
@@ -38,7 +38,7 @@ block content
 					div.table-view-cell.normal
 						if result.image.exists
 							img(src=result._.image.thumbnail(340,340,{ gravity: "face" })).portrait
-						p!= result.bio
+						!= result.bio
 											
 		//- .clear
 		//- .spacer

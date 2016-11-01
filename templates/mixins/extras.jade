@@ -13,18 +13,19 @@ mixin pop-over()
           a(href=link.href, data-transition="fade")= link.label
 
 mixin popover-title(title)
-  a(href="#popover")
     h1.title
-      div.Hspacer
-      = title + " "
-      span.icon.icon-caret
+      a(href="#popover")
+        span
+          div.Hspacer
+          = title + " "
+          span.icon.icon-caret
 
 mixin welcomeIcon(title, icon)
   .welcome
-    span(class=icon)
-    h1.header= title
+    span(class=icon).icon
+    //- h1.header= title
 
 mixin welcomeImage(title, image)
   .welcome
     img(src=image)
-    h1.header= title  
+    //- h1.header= title  

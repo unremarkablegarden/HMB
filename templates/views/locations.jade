@@ -24,7 +24,7 @@ block content
 					h5= result.name						
 					- var link = result.link
 					if link.length
-						a(href="#{result.link}", target="_blank").btn.btn-primary.btn-outlined
+						a(href="#{result.link}", target="_blank", data-ignore="push").btn.btn-primary.btn-outlined
 							//- span.icon.ion-map 
 							span.icon.ion-ios-location
 							.Hspacer.sm

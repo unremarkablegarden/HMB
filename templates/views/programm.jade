@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 block nav
-	header.bar.bar-nav		
+	header.bar.bar-nav
 		+back-button('/')
 		+home-button()
 		+popover-title(locals.title)
@@ -24,10 +24,8 @@ block nav
 
 block content
 	.content.programm
-		.welcome
-			.big-icon
-				span.ion-clipboard
-				h1 Programm
+		+welcomeIcon(locals.title, 'ion-clipboard')
+
 		div.table-view.card
 			- var date = 'start'
 			each result, i in data.results

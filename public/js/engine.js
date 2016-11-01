@@ -1,6 +1,10 @@
 $(function() {
   // var fb = new FingerBlast ('a');
 
+  // $(document).on('click', 'a[href]', function(event) {
+  //   event.preventDefault();
+  // });
+
   // re-bind jquery shit when push has loaded new pages
   window.addEventListener('push', function(e){
     console.log('push');
@@ -8,9 +12,19 @@ $(function() {
     oldiPhoneHaxx();
     aScroll();
     backToTop();
-    $('.popover.visible').removeClass('visible'); $('.backdrop').remove();
+    hidePopOver();
     mediaSwitch();
   });
+
+  function hidePopOver() {
+    $('#popover a').on('click touchend', function(){
+      if( $('#popover').hasClass('visible') ) {
+        $('#popover').hide();
+        $('.backdrop').remove();
+      }
+    });
+  }
+  hidePopOver();
 
   function oldiPhoneHaxx() {
     var userAgent = window.navigator.userAgent;
@@ -108,19 +122,7 @@ $(function() {
   }
   mediaSwitch();
 
-  // $('.popover a').on('click touchstart', function(e){
-  // });
-
 });
-
-
-// function slugify(text)
-// {
-//   return string.toLowerCase()
-//     .replace(/[^\w\s-]/g, '')
-//     .replace(/[\s_-]+/g, '-')
-//     .replace(/^-+|-+$/g, '');
-//   }
 
 // function loader(action) {
 //   var speed = 300;

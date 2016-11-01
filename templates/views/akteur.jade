@@ -4,14 +4,17 @@ block nav
 	header.bar.bar-nav
 		a(href="/programm").icon.icon-left-nav.pull-left
 		+home-button()
-		+popover-title(data.akteur.name)
+		+popover-title('Akteur') 
+		//- data.akteur.name
 				
 block content
 	.content.akteur
-		//- .content-padded
-		h3.content-padded= data.akteur.name
-		div.table-view
+		div.table-view.card
+			div.table-veiw-cell.table-view-divider
+				h5= data.akteur.name
 			div.table-view-cell
+				if data.akteur.image.exists
+					img(src=data.akteur._.image.thumbnail(340,340,{ gravity: "face" })).portrait
 				!= data.akteur.bio
 
 //- title: { type: String, required: true, index: true, initial: true },

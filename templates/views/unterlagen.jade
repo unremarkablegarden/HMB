@@ -8,10 +8,10 @@ block nav
 				
 block content
 	.content.unterlagen
-		+welcome(locals.title, 'ion-document-text')
+		+welcomeIcon(locals.title, 'ion-document-text')
 		
-		h3.heading.content-padded= type
-		div.table-view
+		h3.heading.content-padded= data.results[0].type
+		div.table-view.card
 			each result, i in data.results
 				div.table-view-cell
 					a(data-transition="slide-in", href="/unterlagen/" + result.slug).navigate-right

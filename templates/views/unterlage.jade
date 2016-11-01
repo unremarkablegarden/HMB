@@ -5,15 +5,37 @@ block nav
 		+back-button('/unterlagen')
 		+home-button()
 		- var resolution = 'Resolution # ' + data.unterlage.number
-		+popover-title(resolution)
-				
+		h1.title
+			a(href="#popover")
+				span
+					div.Hspacer
+					= resolution
+					
+	nav.bar.bar-tab
+		.tab-item
+			span.icon.ion-ios-printer-outline
+			span.tab-label PDF (disabled)
+
+			//- a(href="#", target="_blank", data-ignore="push")
+
+
 block content
 	.content.unterlage
-		//- .content-padded
-		h3.content-padded= data.unterlage.title
-		div.table-view
+		- var title = data.unterlage.title
+		- var numberedText = data.unterlage.textNumbered
+		- var normalText = data.unterlage.text
+		- var date = data.unterlage._.date.moment().locale('de').format('Do MMMM YYYY')
+		
+		div.table-view.card
+			div.table-view-cell.table-view-divider
+				h5= title
+			div.table-view-cell.table-view-divider
+				span= date
 			div.table-view-cell
-				code= data.unterlage.textNumbered
+				!= normalText
+				//- pre= numberedText
+				
+				
 
 //- title: { type: String, required: true, index: true, initial: true },
 //- number: { type: Types.Number, label: 'Antrag Nr.' },

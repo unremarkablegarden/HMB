@@ -18,6 +18,7 @@ exports = module.exports = function (req, res) {
 		Veranstaltungen.model.find()
 			.sort('type')
 			.populate('akteure')
+			.populate('location')
 			.exec(function(err, result) {
 				locals.data.results = result;
 				// console.log(locals.data.results);

@@ -18,19 +18,26 @@ block nav
 
 
 block content
-	.content.media
-		.welcome.open
-			.big-icon
-				img(src="/images/media.svg")
-				h1 Media
+	.content.galleries
+		+welcomeImage(locals.title, "/images/media.svg")
+		//- +welcomeIcon(locals.title, "ion-images")
 		
+		div.card
+			div.table-view
+				div.table-view-cell
+					h5 Photo and video documentation will be added after the event. Check back here later.
+
 		div.photos
-			each result, i in data.results
-				if result.type == 'photos'
-					div.table-view.card.photo
-						- var src = result._.heroImage.fit(640, 640)
-						a(href="#").gallery
-							img(src=src).hero
+			div.table-view-card
+				div.table-view-cell
+					p No photo galleries posted yet
+
+			//- each result, i in data.results
+			//- 	if result.type == 'photos'
+			//- 		div.table-view.card.photo
+			//- 			- var src = result._.heroImage.fit(640, 640)
+			//- 			a(href="#").gallery
+			//- 				img(src=src).hero
 
 		div.videos
 			each result, i in data.results
@@ -42,6 +49,10 @@ block content
 					- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 					div.table-view.card.video
 						!= embedCode
+				else
+					div.table-view-card
+						div.table-view-cell
+							p No videos posted yet
 			
 //- title: { type: String, required: true, index: true, initial: true },
 //- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },

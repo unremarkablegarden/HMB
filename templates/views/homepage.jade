@@ -6,14 +6,13 @@ block nav
 		h1.title= locals.title
 
 block content
-	.content
-		each result in data.results
-			.content-padded.home
-				if result.image.exists
-					.home-image.center
-						img(src="/images/logo_gfx_only.svg")
-				h3.center= result.title
-				h4.center.mb15= result.subtitle
+	.content.homepage
+		.welcome
+			- var result = data.results[0]
+			img(src="/images/logo_gfx_only.svg")
+			div
+				h1= result.title
+				h2= result.subtitle
 
 		nav.menu.home
 			each link in navLinks

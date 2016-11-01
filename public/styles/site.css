@@ -4628,21 +4628,64 @@ h1 {
   height: 29px;
   width: auto; }
 
-.big-icon {
-  text-align: center; }
-
-.home-image img, .big-icon img {
-  height: auto;
-  margin-bottom: 20px;
-  width: 22vh;
-  margin-top: 5vh; }
+.welcome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  @media only screen and (orientation: portrait) {
+    .welcome {
+      height: 80vw; }
+      .welcome .icon {
+        font-size: 40vw; }
+      .welcome img {
+        width: 40vw;
+        margin-bottom: 0.5em; } }
   @media only screen and (orientation: landscape) {
-    .home-image img, .big-icon img {
-      width: 32vh;
-      margin-top: 11vh; } }
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .home-image img, .big-icon img {
-      width: 45vh; } }
+    .welcome {
+      height: 40vh; }
+      .welcome .icon {
+        font-size: 25vh; }
+      .welcome img {
+        height: 25vh; } }
+  .welcome h1 {
+    margin-top: 0.4em;
+    font-size: 5vh; }
+  .welcome .icon {
+    color: #169A7d; }
+
+@media only screen and (orientation: portrait) {
+  .homepage .welcome {
+    height: calc(100vh - 78vw); }
+    .homepage .welcome h1 {
+      font-size: 8vw; }
+    .homepage .welcome h2 {
+      font-size: 5.85vw; }
+    .homepage .welcome img {
+      height: 30vh; }
+    .homepage .welcome div {
+      text-align: center; } }
+
+@media only screen and (orientation: landscape) {
+  .homepage .welcome {
+    height: 57vh;
+    flex-direction: row; }
+    .homepage .welcome h1 {
+      font-size: 4vw; }
+    .homepage .welcome h2 {
+      font-size: 2.95vw; }
+    .homepage .welcome img {
+      height: 35vh;
+      margin-right: 1em; } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .homepage .welcome {
+    height: calc(100vh - 21vw); } }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .homepage .welcome {
+    height: calc(100vh - 23vw); } }
 
 .no-image {
   width: 170px;
@@ -4658,23 +4701,24 @@ h1 {
   background: #efefef;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  padding-bottom: 5px; }
+  padding: 0;
+  margin: 0;
+  width: 100%; }
 
 .menu .menu-item {
-  transition: all 60ms linear;
   flex-direction: row;
-  width: 16.5%;
-  padding: 2px;
+  width: 16.3%;
+  padding: 0;
   margin: 0;
   font-size: 0;
   line-height: 0; }
   @media only screen and (min-width: 320px) and (max-width: 735px) and (orientation: portrait) {
     .menu .menu-item {
-      width: 32%; } }
+      width: 32.5%;
+      margin-top: 1%; } }
 
 .touched {
   opacity: 0.7; }
@@ -4689,29 +4733,21 @@ h1 {
 .Hspacer.sm {
   width: 3px; }
 
-.media {
-  display: flex; }
-
-.media-left img {
-  width: 30.5vw;
-  height: auto; }
-
-.media-body {
-  padding-left: 1em; }
-
 .index {
-  margin: 10px 5px;
-  margin-bottom: 7px; }
+  -webkit-box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.2);
+  background-color: #26AA8d;
+  opacity: 0.95;
+  margin-bottom: 5px; }
 
 .index-item {
   display: inline-block;
-  width: 15%;
-  width: calc(16.666% - 10px);
-  height: 16vw;
+  width: 20%;
+  height: 20vw;
   padding: 0 3px;
-  margin: 0 5px 10px 5px;
   background-blend-mode: multiply;
-  background-color: #169A7d;
+  background-color: #26AA8d;
   background-size: cover;
   text-align: center;
   display: flex;
@@ -4724,8 +4760,8 @@ h1 {
   @media only screen and (min-width: 320px) and (max-width: 735px) and (orientation: portrait) {
     .index-item {
       width: 30%;
-      width: calc(33.333% - 10px);
-      height: 32vw; } }
+      width: calc(33.333%);
+      height: 33.3vw; } }
   @media only screen and (min-width: 320px) and (max-width: 735px) and (orientation: portrait) {
     .index-item {
       font-size: 4.1vw; } }
@@ -4778,30 +4814,36 @@ img.portrait, div.portrait {
 .programm ol {
   color: #8f8f8f; }
 
-.programm, .people, .locations, .media, .veranstaltungen {
-  font-size: 0.75em; }
-  .programm h5, .people h5, .locations h5, .media h5, .veranstaltungen h5 {
+.programm, .people, .locations, .galleries, .veranstaltungen, .akteur, .unterlage {
+  font-size: 0.85em; }
+  .programm h5, .people h5, .locations h5, .galleries h5, .veranstaltungen h5, .akteur h5, .unterlage h5 {
     margin: 7px 0;
     letter-spacing: 0.5px;
     text-transform: none;
     color: #169A7d;
-    line-height: 1.2em; }
-  .programm h5.gray, .people h5.gray, .locations h5.gray, .media h5.gray, .veranstaltungen h5.gray {
-    color: #999; }
-  .programm .table-view-cell, .people .table-view-cell, .locations .table-view-cell, .media .table-view-cell, .veranstaltungen .table-view-cell {
+    line-height: 1.2em;
+    font-size: 1.3em; }
+  .programm h5.gray, .people h5.gray, .locations h5.gray, .galleries h5.gray, .veranstaltungen h5.gray, .akteur h5.gray, .unterlage h5.gray {
+    color: #333;
+    font-size: 1em; }
+  .programm .table-view-cell, .people .table-view-cell, .locations .table-view-cell, .galleries .table-view-cell, .veranstaltungen .table-view-cell, .akteur .table-view-cell, .unterlage .table-view-cell {
     padding-right: 15px; }
-  .programm .table-view-cell.normal, .people .table-view-cell.normal, .locations .table-view-cell.normal, .media .table-view-cell.normal, .veranstaltungen .table-view-cell.normal {
+    .programm .table-view-cell p, .people .table-view-cell p, .locations .table-view-cell p, .galleries .table-view-cell p, .veranstaltungen .table-view-cell p, .akteur .table-view-cell p, .unterlage .table-view-cell p {
+      margin-bottom: 0.5em; }
+  .programm .table-view-cell.normal, .people .table-view-cell.normal, .locations .table-view-cell.normal, .galleries .table-view-cell.normal, .veranstaltungen .table-view-cell.normal, .akteur .table-view-cell.normal, .unterlage .table-view-cell.normal {
     padding-right: 0;
     margin-right: 15px; }
-    .programm .table-view-cell.normal p, .people .table-view-cell.normal p, .locations .table-view-cell.normal p, .media .table-view-cell.normal p, .veranstaltungen .table-view-cell.normal p {
+    .programm .table-view-cell.normal p, .people .table-view-cell.normal p, .locations .table-view-cell.normal p, .galleries .table-view-cell.normal p, .veranstaltungen .table-view-cell.normal p, .akteur .table-view-cell.normal p, .unterlage .table-view-cell.normal p {
       font-size: 1em;
       line-height: 1.55em; }
-  .programm .time, .people .time, .locations .time, .media .time, .veranstaltungen .time {
-    min-width: 70px;
+  .programm .time, .people .time, .locations .time, .galleries .time, .veranstaltungen .time, .akteur .time, .unterlage .time {
+    min-width: 6em;
     font-weight: bold; }
 
 .people .table-view-cell.normal {
-  padding: 1em 0 2em 15px; }
+  padding: 1em 0 20px 15px; }
+  .people .table-view-cell.normal p {
+    margin-bottom: 0; }
 
 .locations .map:before {
   content: ""; }
@@ -4836,26 +4878,6 @@ img.portrait, div.portrait {
   font-size: 0;
   padding: 5px; }
 
-.welcome {
-  position: relative; }
-
-.welcome .big-icon {
-  height: calc(100vh - 230px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.welcome .big-icon img {
-  margin: 0;
-  padding: 0; }
-
-.welcome h1 {
-  margin-top: 0.5em; }
-
-.welcome .content-padded {
-  height: 110px; }
-
 .photos img {
   width: 100%;
   height: auto; }
@@ -4872,7 +4894,7 @@ img.portrait, div.portrait {
   display: none;
   position: relative; }
 
-.media .photos, .media .videos, .media .welcome {
+.galleries .photos, .galleries .videos {
   position: absolute;
   width: 100vw; }
 
@@ -4888,14 +4910,6 @@ img.portrait, div.portrait {
   width: 100%;
   height: 100%; }
 
-.programm .welcome .big-icon, .veranstaltungen .welcome .big-icon, .unterlagen .welcome .big-icon {
-  height: 50vh; }
-  .programm .welcome .big-icon span, .veranstaltungen .welcome .big-icon span, .unterlagen .welcome .big-icon span {
-    width: 200px;
-    height: 200px;
-    font-size: 200px;
-    color: #169A7d; }
-
 .programm h3, .veranstaltungen h3, .unterlagen h3 {
   font-size: 1.5em;
   margin-bottom: 1em;
@@ -4904,3 +4918,23 @@ img.portrait, div.portrait {
   opacity: 0.6;
   font-weight: normal !important;
   letter-spacing: 0.5px; }
+
+.veranstaltungen .table-view-cell.table-view-divider {
+  font-size: 1em;
+  color: #444; }
+
+.unterlage p {
+  color: #333;
+  margin-bottom: 1em; }
+
+.locations .table-view-cell > .btn {
+  right: 5px;
+  padding: 11px; }
+
+.flex-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .flex-inline p {
+    margin: 0 !important;
+    padding: 0 !important; }
