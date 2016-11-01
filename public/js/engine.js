@@ -5,6 +5,17 @@ $(function() {
   //   event.preventDefault();
   // });
 
+  addToHomescreen({
+     startDelay: 1,
+     displayPace: 60,
+     maxDisplayCount: 2,
+     message: 'HB Event-App installieren',
+     modal: true,
+     lifespan: 60,
+     animationIn: 'fade',
+     animationOut: 'fade'
+  });
+
   // re-bind jquery shit when push has loaded new pages
   window.addEventListener('push', function(e){
     console.log('push');

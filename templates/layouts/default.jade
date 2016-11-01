@@ -11,6 +11,7 @@ html
 		meta(name='apple-mobile-web-app-title', content='Events')
 		meta(name='apple-mobile-web-app-capable', content='yes')
 		meta(name='apple-mobile-web-app-status-bar-style', content='black')
+		meta(name='mobile-web-app-capable', content='yes')
 
 		title= title || 'Hartmannbund'
 		
@@ -21,7 +22,7 @@ html
 		link(rel="mask-icon", href="/favicons/safari-pinned-tab.svg", color="#888888")
 		link(rel="shortcut icon", href="/favicons/favicon.ico")
 		meta(name="msapplication-config", content="/favicons-s/browserconfig.xml")
-		meta(name="theme-color", content="#ffffff")		
+		meta(name="theme-color", content="#ffffff")
 				
 		link(href="/styles/site.css", rel="stylesheet")
 		if user && user.canAccessKeystone
@@ -46,9 +47,11 @@ html
 		//- script(src='/js/jquery/jquery-ui-1.12.1.min.js')
 		//- script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
 		//- script(src='/js/barba/barba.min.js')
-		//- script(src='/js/fingerblast/fingerblast.min.js')
+		//- script(src='/js/fingerblast.min.js')
+		
 		script(src='/js/ratchet/ratchet.min.js')
 		//- script(src='/js/ratchet/ratchet.js')
+		script(src='/js/addtohomescreen.min.js')
 		script(src='/js/engine.js')
 
 		if user && user.canAccessKeystone
