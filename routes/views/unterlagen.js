@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 	view.on('init', function(next) {
 
 		Unterlagen.model.find()
-			.sort('type')
+			.sort({type: 1, number: 1})
 			// .populate('akteure')
 			.exec(function(err, result) {
 				locals.data.results = result;
