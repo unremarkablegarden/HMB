@@ -1,0 +1,274 @@
+//colors
+$black_60: rgba(0,0,0,0.6);
+$black: #000;
+$color_gallery_approx: #eee;
+$color_celeste_approx: #d1d1d1;
+$white_80: rgba(255,255,255,0.8);
+$color_well_read_approx: #a33;
+$white: #fff;
+$black_30: rgba(0,0,0,0.3);
+$white_50: rgba(255,255,255,0.5);
+
+//fonts
+$font_0: sans-serif;
+
+//urls
+$url_0: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAMAAABmmnOVAAAAdVBMVEUAAAA5OTkzMzM7Ozs3NzdBQUFAQEA/Pz8+Pj5BQUFAQEA/Pz8+Pj5BQUFAQEA/Pz9BQUE+Pj4/Pz8/Pz8+Pj4/Pz8/Pz8/Pz8+Pj4/Pz8+Pj4/Pz8/Pz8/Pz8/Pz8/Pz8+Pj4/Pz8/Pz8/Pz8/Pz9AQEA/Pz+fdCaPAAAAJnRSTlMACQoNDjM4OTo7PEFCQ0RFS6ytsbS1tru8vcTFxu7x8vX19vf4+C5yomAAAAJESURBVHgBvdzLTsJAGEfxr4C2KBcVkQsIDsK8/yPaqIsPzVlyzrKrX/5p0kkXEz81L23otc9NpIbbWia2YVLqdnhlqFlhGWpSDHe1aopsSIpRb8gK0dC3G30b9rVmhWZIimTICsvQtx/FsuYOrWHoDjX3Gu31gzJxdki934WrAIOsAIOsAIOiAMPhPsJTgKGN0BVsYIVsYIVpYIVpYIVpYIVpYIVpYIVpYIVpYIVlAIVgEBRs8BRs8BRs8BRs8BRs8BRs8BRs8BRTNmgKNngKNngKNngKNngKNhiKGxgiOlZoBlaYBlaYBlaYBlaYBlaYBlaYBlaYBlZIBlBMfQMrVAMr2KAqBENSHFHhGEABhi5CV6gGUKgGUKgGUKgGUFwuqgEUvoEVsoEVpoEUpgEUggF+gKTKY+h1fxSlC7/Z+RrxOQ3fcEoAPPHZBlaYBlaYBlaYBlZYBlYIhvLBCstw7PgM7hkiWOEZWGEaWGEaWGEaIsakEAysmHkGVpxmvoEVqoEVpoEVpoEVpoEVpoEVpoEVkoEVgkFQsEFSsEFQsGEcoSvY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnY4CnmbNAUT2c2WAo2eAo2eAo2eAo2eAo2eArNEPFACjZ4CjZ4CjZ4CjaIird/rBvFH6llNCvewdli1URWCIakSIZesUaDoFg36dKFWk9zCZDei3TtwmCj7pC22AwikiIZPEU29IpFNliKxa/hC9DFITjQPYhcAAAAAElFTkSuQmCC);
+$url_1: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAACtCAMAAABMSUt8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4RERCNEY2NTk4NzMxMUU2OTY1MURDMDNCNDhDQjY0QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4RERCNEY2Njk4NzMxMUU2OTY1MURDMDNCNDhDQjY0QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhEREI0RjYzOTg3MzExRTY5NjUxREMwM0I0OENCNjRCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhEREI0RjY0OTg3MzExRTY5NjUxREMwM0I0OENCNjRCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+PEQzzgAAAAxQTFRFgoKC/v7+5+fn////Ll+jGQAAAAR0Uk5T////AEAqqfQAAAGgSURBVHja7NqJboMwFETReeb//7mpmqYYO+J57JIud6RIIAUfTRxWoc1PUfgba8bVhKwpd0LWnKtSLobvrt9Zs67KlfDOdTtr3vXmWfOu92trgXvLFXDPNTpriWt01iJ3uLMWucOdtcwd7Kxl7mBnmW40C4OdZboPr5iyLLfsYU+W6UZveUTOwnFwo7syIMvrG1u1Zsjy+m5f8ObJ8vruYU+W17eCLVmmW8GOLNOtYUOW6R7gcVkDf6y9e4QbOdY1rtwGPsixbo5rt4UrORbMcUT5uHiu3A68k+uv2nC0fbvwQ444l1NwlGPfPnyXM25mjt/hdqj+fhOfWXLk6g71ZIfNurljdW+oZ0eKpJs7O/WGenqIyrnZ8/GWh7fc7bL9DGTygQAwMDDwBHzbNP05uwIZGWso5RT+ppzABRj4Z8ElkbP9ODNGA0cmiVuYswC/Dr7q7AQMDAwMDAwMDAwMDAwMDAwMDAz8L+GI9hn2RXD6zQvgXwq7AQYGBgYGBgYGBgYGBgYGBgYGBgYGBgYefpV9QUQI+TuJFwX4srwJMABYI7NXR8NGPwAAAABJRU5ErkJggg==);
+$url_2: url(data:image/png;base64,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);
+$url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAANlBMVEVmZmb///9mZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZW6fJrAAAAEXRSTlMAAAYHG21ub8fLz9DR8/T4+RrZ9owAAAB3SURBVHja7dNLDoAgDATQWv4gKve/rEajJOJiWLgg6WzpSyB0aHqHiNj6nL1lovb4C+hYzkSNAT7mryQFAVOeGAj4CjwEtgrWXpD/uZKtwEJApXt+Vn0flzRhgNiFZQkOXY0aADQZCOCPlsZJ46Rx0jhp3IiN2wGDHhxtldrlwQAAAABJRU5ErkJggg==);
+
+
+//@extend-elements
+//original selectors
+//.ath-ios7 .ath-action-icon, .ath-ios8 .ath-action-icon, .ath-ios9 .ath-action-icon, .ath-ios10 .ath-action-icon
+%extend_1 {
+	width: 1.6em;
+	height: 1.6em;
+	background-image: $url_1;
+	margin-top: -0.3em;
+	background-size: auto 100%;
+}
+
+
+.ath-viewport {
+	position: relative;
+	z-index: 2147483641;
+	pointer-events: none;
+	//Instead of the line below you could use @include user-select($select)
+	user-select: none;
+	text-size-adjust: none;
+	* {
+		//Instead of the line below you could use @include box-sizing($bs)
+		box-sizing: border-box;
+	}
+}
+.ath-modal {
+	pointer-events: auto !important;
+	background: $black_60;
+}
+.ath-mandatory {
+	background: $black;
+	.ath-container:before {
+		display: none;
+	}
+}
+.ath-container {
+	pointer-events: auto !important;
+	position: absolute;
+	z-index: 2147483641;
+	padding: 0.7em 0.6em;
+	width: 18em;
+	background: $color_gallery_approx;
+	background-size: 100% auto;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0.2em 0 $color_celeste_approx;
+	font-family: $font_0;
+	font-size: 15px;
+	line-height: 1.5em;
+	text-align: center;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 10px;
+	padding: 40px 25px;
+	small {
+		font-size: 0.8em;
+		line-height: 1.3em;
+		display: block;
+		margin-top: 0.5em;
+	}
+	&:before {
+		content: '';
+		position: relative;
+		display: block;
+		float: right;
+		margin: -0.7em -0.6em 0 0.5em;
+		background-image: $url_0;
+		background-color: $white_80;
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: 50%;
+		width: 2.7em;
+		height: 2.7em;
+		text-align: center;
+		overflow: hidden;
+		color: $color_well_read_approx;
+		z-index: 2147483642;
+	}
+	&.ath-android {
+		&:before {
+			float: left;
+			margin: -0.7em 0.5em 0 -0.6em;
+		}
+		&.ath-icon:before {
+			position: absolute;
+			right: auto;
+			left: 0;
+			margin: 0;
+			float: none;
+		}
+	}
+	p {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		z-index: 2147483642;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: 0 0.1em 0 $white;
+		font-size: 1.1em;
+	}
+	&.ath-icon:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		float: none;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 0 10px;
+	}
+	&.ath-ios .ath-application-icon {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 1em;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0.2em 0.4em $black_30, inset 0 0.07em 0 $white_50;
+		margin: 0 auto 0.4em auto;
+	}
+}
+.ath-ios {
+	&.ath-phone {
+		bottom: 1.8em;
+		left: 50%;
+		margin-left: -9em;
+		&:after {
+			content: '';
+			background: $color_gallery_approx;
+			position: absolute;
+			width: 2em;
+			height: 2em;
+			bottom: -0.9em;
+			left: 50%;
+			margin-left: -1em;
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleX(0.9) rotate(45deg);
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0.2em 0.2em 0 $color_celeste_approx;
+		}
+	}
+	&.ath-tablet:after {
+		content: '';
+		background: $color_gallery_approx;
+		position: absolute;
+		width: 2em;
+		height: 2em;
+		top: -0.9em;
+		left: 50%;
+		margin-left: -1em;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: scaleX(0.9) rotate(45deg);
+		z-index: 2147483641;
+	}
+}
+.ath-ios6 {
+	&.ath-tablet {
+		left: 5em;
+		top: 1.8em;
+	}
+	.ath-action-icon {
+		width: 1.8em;
+		height: 1.8em;
+		background-image: $url_2;
+		margin-bottom: 0.4em;
+		background-size: 100% auto;
+	}
+}
+.ath-ios7 {
+	&.ath-tablet {
+		left: 0.7em;
+		top: 1.8em;
+	}
+	.ath-action-icon {
+		@extend %extend_1;
+	}
+}
+.ath-ios8 {
+	&.ath-tablet {
+		right: 0.4em;
+		top: 1.8em;
+	}
+	.ath-action-icon {
+		@extend %extend_1;
+	}
+}
+.ath-ios9 {
+	&.ath-tablet {
+		right: 0.4em;
+		top: 1.8em;
+	}
+	.ath-action-icon {
+		@extend %extend_1;
+	}
+}
+.ath-ios10 {
+	&.ath-tablet {
+		right: 0.4em;
+		top: 1.8em;
+	}
+	.ath-action-icon {
+		@extend %extend_1;
+	}
+}
+.ath-android {
+	bottom: 1.8em;
+	left: 50%;
+	margin-left: -9em;
+	.ath-action-icon {
+		width: 1.4em;
+		height: 1.5em;
+		background-image: $url_3;
+		background-size: 100% auto;
+	}
+}
+.ath-action-icon {
+	display: inline-block;
+	vertical-align: middle;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	text-indent: -9999em;
+	overflow: hidden;
+}
+.ath-application-icon {
+	position: relative;
+	padding: 0;
+	border: 0;
+	margin: 0 auto 0.2em auto;
+	height: 6em;
+	width: 6em;
+	z-index: 2147483642;
+}
+@media only screen and(orientation: landscape) {
+	.ath-container.ath-phone {
+		width: 24em;
+	}
+	.ath-android.ath-phone {
+		margin-left: -12em;
+	}
+	.ath-ios.ath-phone {
+		margin-left: -12em;
+	}
+	.ath-ios6:after {
+		left: 39%;
+	}
+	.ath-ios8.ath-phone {
+		left: auto;
+		bottom: auto;
+		right: 0.4em;
+		top: 1.8em;
+		&:after {
+			bottom: auto;
+			top: -0.9em;
+			left: 68%;
+			z-index: 2147483641;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: none;
+		}
+	}
+}

@@ -7,22 +7,14 @@ html
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no')
-
 		meta(name='apple-mobile-web-app-title', content='Events')
 		meta(name='apple-mobile-web-app-capable', content='yes')
 		meta(name='apple-mobile-web-app-status-bar-style', content='black')
 		meta(name='mobile-web-app-capable', content='yes')
 
-		title= title || 'Hartmannbund'
+		title= title || 'Hartmannbund Events'
 		
-		link(rel="apple-touch-icon", sizes="180x180", href="/favicons-s/apple-touch-icon.png")
-		link(rel="icon", type="image/png", href="/favicons/favicon-32x32.png", sizes="32x32")
-		link(rel="icon", type="image/png", href="/favicons/favicon-16x16.png", sizes="16x16")
-		link(rel="manifest", href="/favicons-s/manifest.json")
-		link(rel="mask-icon", href="/favicons/safari-pinned-tab.svg", color="#888888")
-		link(rel="shortcut icon", href="/favicons/favicon.ico")
-		meta(name="msapplication-config", content="/favicons-s/browserconfig.xml")
-		meta(name="theme-color", content="#ffffff")
+		+favicon()
 				
 		link(href="/styles/site.css", rel="stylesheet")
 		if user && user.canAccessKeystone
@@ -38,21 +30,23 @@ html
 		+flash-messages(messages)
 		block content
 		block footer
-
+		div.loader
+		
+		+lock()
 
 		//- --------------------------------------------------------------
 		//- JAVASCRIPT
-		script(src='/js/ratchet/standalone-fix.js')
-		script(src='/js/jquery/jquery-2.2.4.min.js')
+		//- script(src='/js/ratchet/standalone-fix.js')
+		//- script(src='/js/jquery/jquery-2.2.4.min.js')
 		//- script(src='/js/jquery/jquery-ui-1.12.1.min.js')
 		//- script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
 		//- script(src='/js/barba/barba.min.js')
-		//- script(src='/js/fingerblast.min.js')
-		
-		script(src='/js/ratchet/ratchet.min.js')
+		//- script(src='/js/fingerblast/fingerblast.min.js')
+		//- script(src='/js/ratchet/ratchet.min.js')
 		//- script(src='/js/ratchet/ratchet.js')
-		script(src='/js/addtohomescreen.min.js')
-		script(src='/js/engine.js')
+		//- script(src='/js/addtohomescreen/addtohomescreen.min.js')
+		//- script(src='/js/engine.js')
+		script(src='/js/script.min.js')
 
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')

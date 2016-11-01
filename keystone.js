@@ -1,19 +1,13 @@
-// Simulate config options from your production environment by
-// customising the .env file in your project's root folder.
 require('dotenv').config();
 
 // Require keystone
 var keystone = require('keystone');
 
-// Initialise Keystone with your project's configuration.
-// See http://keystonejs.com/guide/config for available options
-// and documentation.
-
 keystone.init({
 	'name': 'Hartmannbund',
 	'brand': 'Hartmannbund',
 
-	'sass': 'public',
+	// 'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
@@ -24,10 +18,10 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'adminui custom styles': 'customAdmin/index.less',
-	'wysiwyg additional options': {
-		// paste_as_text: true,
-		// plugins: 'paste',
-	}
+	// 'wysiwyg additional options': {
+	// 	paste_as_text: true,
+	// 	plugins: 'paste',
+	// }
 });
 
 // Load your project's Models
@@ -41,7 +35,6 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
-	// inflect: ['equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep', 'jeans', 'sushi', 'akteure', 'programm', 'veranstaltungen', 'unterlagen'],
 });
 
 // Load your project's Routes
@@ -60,19 +53,7 @@ keystone.set('nav', {
 	],
 	system: 'users',
 	// testing: ['posts', 'post-categories', 'galleries'],
-
-	// posts: ['posts', 'post-categories'],
-	// galleries: 'galleries',
-	// users: 'users',
-
-	// programm: 'programm',
-	// locations: 'locations',
-	// akteure: 'Akteure',
-	// veranstaltungen: 'veranstaltungen',
-	// unterlagen: 'unterlagen',
-	// media: 'media'
 });
 
 // Start Keystone to connect to your database and initialise the web server
-
 keystone.start();

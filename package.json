@@ -17,13 +17,18 @@
   "devDependencies": {
     "barba-transitions": "^1.1.0",
     "barba.js": "^1.0.0",
+    "clean-css": "^3.4.20",
     "eslint": "^2.12.0",
     "eslint-config-keystone": "^2.3.1",
     "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.7.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.14",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.0",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5"
   },
   "scripts": {
