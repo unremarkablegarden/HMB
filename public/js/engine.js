@@ -9,9 +9,9 @@ $(function() {
      startDelay: 1,
      displayPace: 0,
      maxDisplayCount: 0,
-     message: 'HB Event-App installieren',
+    //  message: 'HB Event-App installieren',
      modal: true,
-     lifespan: 60,
+     lifespan: 30,
      animationIn: 'fade',
      animationOut: 'fade'
   });

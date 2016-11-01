@@ -20,17 +20,20 @@ block nav
 block content
 	.content.galleries
 		+welcomeImage(locals.title, "/images/media.svg")
-		//- +welcomeIcon(locals.title, "ion-images")
+
+		- var after = "Photo and video documentation will be added after the event. Check back here later."
+		- var noPhotos = "No photo galleries posted yet"
+		- var noVideos = "No videos posted yet"
 		
 		div.card
 			div.table-view
 				div.table-view-cell
-					h5 Photo and video documentation will be added after the event. Check back here later.
+					h5= after
 
 		div.photos
 			div.table-view-card
 				div.table-view-cell
-					p No photo galleries posted yet
+					p= noPhotos
 
 			//- each result, i in data.results
 			//- 	if result.type == 'photos'
@@ -52,7 +55,7 @@ block content
 				else
 					div.table-view-card
 						div.table-view-cell
-							p No videos posted yet
+							p= noVideos
 			
 //- title: { type: String, required: true, index: true, initial: true },
 //- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },

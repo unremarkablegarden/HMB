@@ -52,15 +52,18 @@ h1 {
 }
 .homepage .welcome {
   @include portrait {
-    height: calc(100vh - 78vw);
+    // height: calc(100vh - 78vw);
+    // height: calc(100vh - 78vw);
+    height: calc(50vh);
+    // background: pink;
     h1 {
-      font-size: 8vw;
+      font-size: 7vw;
     }
     h2 {
-      font-size: 5.85vw;
+      font-size: 5.18vw;
     }
     img {
-      height: 30vh;
+      height: 20vh;
     }
     div {
       text-align: center;

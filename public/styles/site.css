@@ -4658,13 +4658,13 @@ h1 {
 
 @media only screen and (orientation: portrait) {
   .homepage .welcome {
-    height: calc(100vh - 78vw); }
+    height: calc(50vh); }
     .homepage .welcome h1 {
-      font-size: 8vw; }
+      font-size: 7vw; }
     .homepage .welcome h2 {
-      font-size: 5.85vw; }
+      font-size: 5.18vw; }
     .homepage .welcome img {
-      height: 30vh; }
+      height: 20vh; }
     .homepage .welcome div {
       text-align: center; } }
 
