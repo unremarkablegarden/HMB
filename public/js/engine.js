@@ -1,65 +1,12 @@
 
 $(function() {
-
   // Cookies.remove('hartmannevents');
-  var unlockedCookie = Cookies.get('hartmannevents');
 
   // var fb = new FingerBlast ('a');
 
   // $(document).on('click', 'a[href]', function(event) {
   //   event.preventDefault();
   // });
-
-  var homeHelp = true;
-
-
-  function triggerHomeHelp() {
-    if(homeHelp) {
-    addToHomescreen({
-       startDelay: 1,
-       displayPace: 0,
-       maxDisplayCount: 0,
-      //  message: 'HB Event-App installieren',
-       modal: true,
-       lifespan: 60,
-    });
-    }
-  }
-
-  // var pw = 'HBHV2016';
-  var pw = 'hbhv';
-
-  function lock() {
-    $('.locked input').bind('change paste input', function(){
-        var t = $(this);
-        var vallength = t.val().length;
-        if (vallength == 4) {
-          if(t.val() == pw) {
-            t.blur()
-            unlock();
-          }
-          else {
-            t.shake(2, 10, 500).val('');
-          }
-        }
-    });
-  }
-  lock();
-  if( unlockedCookie == 'unlocked') {
-    $('.locked').remove();
-  }
-
-  function unlock() {
-    // write cookie
-    Cookies.set('hartmannevents', 'unlocked');
-    // hide lock screen
-    $('.unlocker').addClass('unlockit');
-    window.setTimeout(function() {
-      $('.locked').fadeOut(500);
-    }, 500);
-    // show home screen help
-    triggerHomeHelp();
-  }
 
   // re-bind jquery shit when push has loaded new pages
   window.addEventListener('push', function(e){
@@ -69,7 +16,58 @@ $(function() {
     backToTop();
     hidePopOver();
     mediaSwitch();
+    checkLock();
+    bindHelp();
   });
+
+  var homeHelp = addToHomescreen({
+     startDelay: 0,
+     displayPace: 0,
+     maxDisplayCount: 0,
+     modal: true,
+     lifespan: 0,
+     autostart: false
+  });
+
+  function bindHelp() {
+    var help = $('a.help');
+    help.unbind('click').click(function(e){ e.preventDefault(); }).on('click', function() { homeHelp.show(); });
+    if(window.navigator.standalone) help.remove();
+  }
+  bindHelp();
+
+  var pw = 'hbhv';
+  function checkLock() {
+    var locked = $('.locked');
+    var unlockedCookie = Cookies.get('hartmannevents');
+    if( unlockedCookie !== 'unlocked') unlockedCookie = 'locked';
+    if( unlockedCookie == 'unlocked') { locked.remove(); }
+
+    $('.locked input').unbind().bind('change paste input', function(){
+      var t = $(this);
+      var vallength = t.val().length;
+      if (vallength == 4) {
+        if(t.val() == pw) {
+          // hide onscreen keyboard
+          t.blur()
+          // write cookie
+          Cookies.set('hartmannevents', 'unlocked', { expires: 14 });
+          // hide lock screen
+          $('.unlocker').addClass('unlockit');
+          window.setTimeout(function() {
+            $('.locked').fadeOut(500);
+          }, 500);
+          // show home screen help
+          homeHelp.show();
+        }
+        else {
+          t.shake(2, 10, 500).val('');
+        }
+      }
+    });
+  }
+  checkLock();
+
 
   function hidePopOver() {
     $('#popover a').on('click touchend', function(){

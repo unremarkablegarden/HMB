@@ -2,6 +2,10 @@ extends ../layouts/default
 
 block nav
 	header.bar.bar-nav
+		a(href="#").pull-left.help
+			//- span.icon.ion-ios-information.green
+			span.icon.ion-ios-information-outline.green
+		
 		+home-button()
 		h1.title= locals.title
 

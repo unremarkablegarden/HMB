@@ -25,7 +25,9 @@ block content
 					h5= result.title
 				div.table-view-cell.table-view-divider
 					each leader in result.akteure
-						!= leader.name
+						.link
+							a(href="/akteure/" + leader.slug, data-transition="slide-in")
+								!= leader.name
 				div.table-view-cell.table-view-divider
 					div.flex-inline
 						!= result.location.info
