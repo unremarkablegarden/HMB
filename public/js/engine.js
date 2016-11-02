@@ -43,7 +43,7 @@ $(function() {
     });
     $('.programmViewMenu a').on('touchend', function(e) {
       var t = $(this);
-      var p = t.parent();
+      var p = t.closest('.tab-item');
       if( ! p.hasClass('active')) {
         var iv = $('.item-view');
         var tv = $('.time-view');
@@ -60,7 +60,7 @@ $(function() {
         }
       }
       // update menu
-      $('.programmViewMenu .tab-item').removeClass('active');
+      $('.programmViewMenu.tab-item').removeClass('active');
       p.addClass('active');
     });
   }
