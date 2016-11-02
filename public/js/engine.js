@@ -112,7 +112,7 @@ $(function() {
     var Y = today.getFullYear();
     var hh = today.getHours();
     var todayString = String(D) + String(M) + String(Y);
-    var todayString = "4112016";
+    // var todayString = "4112016";
     // select today
     $('*[data-date="'+todayString+'"]').each(function(){
       var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
