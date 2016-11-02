@@ -35,3 +35,4 @@ node_modules
 updates
 
 /public/styles/site.css
+/public/styles/script.min.js
