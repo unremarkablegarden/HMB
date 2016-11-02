@@ -9,8 +9,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 
 var autoprefixerOptions = {
-  // browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-	browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']
+  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+	// browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']
 };
 
 var paths = {
@@ -33,17 +33,6 @@ var paths = {
 		output: './public/js/'
 	}
 };
-
-//- script(src='/js/ratchet/standalone-fix.js')
-//- script(src='/js/jquery/jquery-2.2.4.min.js')
-//- script(src='/js/jquery/jquery-ui-1.12.1.min.js')
-//- script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
-//- script(src='/js/barba/barba.min.js')
-//- script(src='/js/fingerblast/fingerblast.min.js')
-//- script(src='/js/ratchet/ratchet.min.js')
-//- script(src='/js/ratchet/ratchet.js')
-//- script(src='/js/addtohomescreen/addtohomescreen.min.js')
-//- script(src='/js/engine.js')
 
 
 gulp.task('watch:sass', function () {

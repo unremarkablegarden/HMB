@@ -1,12 +1,11 @@
 mixin lock()
   .locked
-    .container
-      .lock
-        .unlocker
-      .label Passwort
-      input(type="password", name="password", value="", maxlength="4")
-      
-      
+    .inner
+      .container
+        .lock
+          .unlocker
+        .label Passwort
+        input(type="password", name="password", value="", maxlength="4")
 
 mixin home-button()
   a(href="/" data-transition="fade").btn.pull-right.home-button

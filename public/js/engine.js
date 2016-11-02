@@ -18,6 +18,7 @@ $(function() {
     mediaSwitch();
     checkLock();
     bindHelp();
+    programmView();
   });
 
   var homeHelp = addToHomescreen({
@@ -36,35 +37,69 @@ $(function() {
   }
   bindHelp();
 
-  var pw = 'hbhv';
-  function checkLock() {
-    var locked = $('.locked');
-    var unlockedCookie = Cookies.get('hartmannevents');
-    if( unlockedCookie !== 'unlocked') unlockedCookie = 'locked';
-    if( unlockedCookie == 'unlocked') { locked.remove(); }
-
-    $('.locked input').unbind().bind('change paste input', function(){
+  function programmView() {
+    $('.programmViewMenu a').click(function(e){
+      e.preventDefault();
+    });
+    $('.programmViewMenu a').on('touchend', function(e) {
       var t = $(this);
-      var vallength = t.val().length;
-      if (vallength == 4) {
-        if(t.val() == pw) {
-          // hide onscreen keyboard
-          t.blur()
-          // write cookie
-          Cookies.set('hartmannevents', 'unlocked', { expires: 14 });
-          // hide lock screen
-          $('.unlocker').addClass('unlockit');
-          window.setTimeout(function() {
-            $('.locked').fadeOut(500);
-          }, 500);
-          // show home screen help
-          homeHelp.show();
+      var p = t.parent();
+      if( ! p.hasClass('active')) {
+        var iv = $('.item-view');
+        var tv = $('.time-view');
+        // change view
+        if(t.hasClass('itemview')) {
+          tv.fadeOut(300, function(){
+            iv.fadeIn(300);
+          });
         }
-        else {
-          t.shake(2, 10, 500).val('');
+        else if(t.hasClass('timeview')) {
+          iv.fadeOut(300, function(){
+            tv.fadeIn(300);
+          });
         }
       }
+      // update menu
+      $('.programmViewMenu .tab-item').removeClass('active');
+      p.addClass('active');
     });
+  }
+  programmView();
+
+  function checkLock() {
+    var pw = 'hbhv';
+    var locked = $('.locked');
+    var unlockedCookie = Cookies.get('hartmannevents');
+    if( unlockedCookie == 'unlocked') {
+      locked.hide();
+    }
+    else {
+      unlockedCookie = 'locked';
+      locked.show();
+
+      $('.locked input').unbind().bind('change paste input', function(){
+        var t = $(this);
+        var vallength = t.val().length;
+        if (vallength == 4) {
+          if(t.val() == pw) {
+            // hide onscreen keyboard
+            t.blur()
+            // write cookie
+            Cookies.set('hartmannevents', 'unlocked', { expires: 14 });
+            // hide lock screen
+            $('.unlocker').addClass('unlockit');
+            window.setTimeout(function() {
+              $('.locked').fadeOut(500);
+            }, 500);
+            // show home screen help
+            homeHelp.show();
+          }
+          else {
+            t.shake(2, 10, 500).val('');
+          }
+        }
+      });
+    }
   }
   checkLock();
 
@@ -108,9 +143,8 @@ $(function() {
 
   function backToTop() {
     if( $('.tab-item').hasClass('backToTop') ) {
-      var btt = $('.backToTop').closest('nav');
-      btt.animate({'bottom': '-60px'}, 250);
-      btt.unbind('touchstart').bind('touchstart', function(){
+      var btt = $('nav.bar.bar-tab.btt')
+      btt.unbind('touchend').bind('touchend', function(){
         $('.content').animate({
           scrollTop: 0
         }, 350);
@@ -135,16 +169,16 @@ $(function() {
   backToTop();
 
   function menuTapFX() {
-    $('.menu-item').unbind();
-    $(document).on('click touchstart', '.menu-item', function(e){
+    $('.menu-item').removeClass('touched').unbind();
+    $(document).on('touchstart', '.menu-item', function(e){
       var t = $(this);
       t.addClass('touched');
-      window.setTimeout(function(){
-        t.removeClass('touched');
-      }, 60);
+      // window.setTimeout(function(){
+      //   t.removeClass('touched');
+      // }, 60);
     });
   }
-  menuTapFX();
+  // menuTapFX();
 
   function mediaSwitch() {
     var welcome = $('.welcome')

@@ -6,13 +6,13 @@ block nav
 		+home-button()
 		+popover-title(locals.title)
 
-	nav.bar.bar-tab
+	nav.bar.bar-tab.programmViewMenu
 		.tab-item.active
-			a(href="#list-view")
+			a(href="#").itemview
 				span.icon.ion-clipboard
 				span.tab-label Item view
 		.tab-item
-			a(href="#time-view")
+			a(href="#").timeview
 				span.icon.ion-clock
 				
 				span.tab-label Time view
@@ -24,26 +24,68 @@ block nav
 
 block content
 	.content.programm
-		+welcomeIcon(locals.title, 'ion-clipboard')
+		.item-view
+			+welcomeIcon(locals.title, 'ion-clipboard')
+			
+			div.table-view.card
+				- var date
+				each result, i in data.results
+					- newDate = String(result.date)
+					if date !== newDate
+						- date = newDate
+						div.table-view-cell.table-view-divider
+							h5= result._.date.moment().locale('de').format('Do MMMM')
+					div.table-view-cell.normal
+						div.pull-left.time
+							= result.start
+							if result.end.length
+								| -
+								= result.end
+						div.media-body
+							.program-title= result.title
+							p.more!= result.content
 
-		div.table-view.card
-			- var date = 'start'
-			each result, i in data.results
-				- newDate = String(result.date)
-				if date !== newDate
-					- date = newDate
-					div.table-view-cell.table-view-divider
-						h5= result._.date.moment().locale('de').format('Do MMMM')
-				div.table-view-cell.normal
-					div.pull-left.time
-						= result.start
-						if result.end.length
-							| -
-							= result.end
-					div.media-body
-						.program-title= result.title
-						p.more!= result.content
-				
+
+		.time-view
+			+welcomeIcon(locals.title, 'ion-clock')
+			div.table-view.card
+				- var date
+				each result, i in data.results
+					- newDate = String(result.date)
+					if date !== newDate
+						- date = newDate
+						div.table-view-divider
+							h5= result._.date.moment().locale('de').format('Do MMMM')
+					
+					- var start = result.start
+					- var startH = parseInt( start.split(".")[0] )
+					- var startM = parseInt( start.split(".")[1] )
+					- var end = result.end
+					- var endH = parseInt( end.split(".")[0] )
+					- var endM = parseInt( end.split(".")[1] )
+					- var momentStart = result._.date.moment().add(startH, 'hours').add(startM, 'minute')
+					- if(endM || end.split(".")[1] == '00')
+						- var d = result._.date.moment().add(endH, 'hours').add(endM,'minute').diff(momentStart)
+						- var min = d/1000/60
+						- var qs = min/15
+					- else
+						- var min = 'no end'
+						- var qs = 2
+					- var pixelPerQ = 25
+					- var marginTop = 10
+					- var height = (qs * pixelPerQ) - marginTop
+					div.table-view-cell(style="height: #{height}px")
+						div.pull-left.time
+							= start
+						div.media-body
+							.program-title= result.title
+							p.more!= result.content
+						
+								
+							
+
+						//- .program-title= result.title
+							//- p.more!= result.content
 
 					
 //- title: { type: String, required: true, index: true, initial: true, label: 'Programmpunkt' },

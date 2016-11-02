@@ -118,7 +118,7 @@ h1 {
   // padding-bottom: 5px;
 }
 .menu .menu-item {
-  // transition: all 60ms linear;
+  transition: all 75ms linear;
   flex-direction: row;
   width: 16.3%;
   padding: 0;
@@ -131,7 +131,7 @@ h1 {
   }
 }
 .touched {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .Hspacer:before {
   content: ""
@@ -297,7 +297,36 @@ img.portrait, div.portrait {
     min-width: 6em;
     font-weight: bold;
   }
+
 }
+
+.time-view {
+  display: none;
+  .table-view-divider {
+  }
+  .table-view-cell {
+    // font-size: 14px;
+    // line-height: 1.3em;
+    padding: 10px 0 0 15px !important;
+    background-position: 0 100% !important
+  }
+  .time {
+    min-width: 4em;
+  }
+  .more, p, ul, ol {
+    display: none;
+    font-size: 14px !important;
+    line-height: 1.3em;
+    // margin: 0 !important;
+    // padding: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    color: #AAA;
+  }
+}
+
 .people .table-view-cell.normal {
   padding: 1em 0 20px 15px;
   p {
@@ -430,4 +459,8 @@ img.portrait, div.portrait {
 }
 .help {
   cursor: pointer;
+}
+
+nav.bar.bar-tab.btt {
+  bottom: -60px;
 }

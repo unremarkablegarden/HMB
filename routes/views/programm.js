@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 
+
 var selectList = 'Programm';
 var 							Programm = keystone.list(selectList);
 
@@ -10,6 +11,7 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+	// var locals.moment = require('moment');
 
 	view.on('init', function(next) {
 
