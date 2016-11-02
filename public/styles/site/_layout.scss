@@ -301,11 +301,11 @@ img.portrait, div.portrait {
 }
 
 .item-view {
-  display: none;
+  // display: none;
 }
 
 .time-view {
-  // display: none;
+  display: none;
   .redline:before {
     content: ""
   }
