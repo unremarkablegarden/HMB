@@ -300,8 +300,22 @@ img.portrait, div.portrait {
 
 }
 
-.time-view {
+.item-view {
   display: none;
+}
+
+.time-view {
+  // display: none;
+  .redline:before {
+    content: ""
+  }
+  .redline {
+    border-bottom: 2px red solid;
+    position: relative;
+    z-index: 999;
+    display: none;
+    opacity: 0.8;
+  }
   .table-view-divider {
   }
   .table-view-cell {

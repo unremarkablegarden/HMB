@@ -16,7 +16,7 @@ block nav
 				span.icon.ion-clock
 				span.tab-label Time view
 		.tab-item
-			a(href="/files/programm.pdf", target="_blank", data-ignore="push")
+			a(href="/files/Programm.pdf", target="_blank", data-ignore="push")
 				span.icon.ion-ios-printer-outline
 				span.tab-label Print
 
@@ -47,14 +47,17 @@ block content
 
 		.time-view
 			+welcomeIcon(locals.title, 'ion-clock')
+			.redline
 			div.table-view.card
 				- var date
 				each result, i in data.results
-					- newDate = String(result.date)
+					- var newDate = String(result.date)
 					if date !== newDate
 						- date = newDate
 						div.table-view-divider
-							h5= result._.date.moment().locale('de').format('Do MMMM')
+							- var germanDate = result._.date.moment().locale('de').format('Do MMMM')
+							- var normalDate = result._.date.moment().format('DMYYYY')
+							h5(data-date=normalDate)= germanDate
 					
 					- var start = result.start
 					- var startH = parseInt( start.split(".")[0] )
@@ -70,9 +73,9 @@ block content
 					- else
 						- var min = 'no end'
 						- var qs = 2
-					- var pixelPerQ = 25
+					- var pixelPerQ = 20
 					- var marginTop = 10
-					- var height = (qs * pixelPerQ) - marginTop
+					- var height = (qs * pixelPerQ)
 					div.table-view-cell(style="height: #{height}px")
 						div.pull-left.time
 							= start

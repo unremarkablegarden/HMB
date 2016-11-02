@@ -19,6 +19,7 @@ $(function() {
     checkLock();
     bindHelp();
     programmView();
+    redline();
   });
 
   var homeHelp = addToHomescreen({
@@ -103,6 +104,36 @@ $(function() {
   }
   checkLock();
 
+  function redline() {
+    // format('DMYYYY')
+    var today = new Date();
+    var D = today.getDate();
+    var M = today.getMonth()+1;
+    var Y = today.getFullYear();
+    var hh = today.getHours();
+    var todayString = String(D) + String(M) + String(Y);
+    var todayString = "4112016";
+    // select today
+    $('*[data-date="'+todayString+'"]').each(function(){
+      var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
+      var midnight = new Date(niceDate);
+      var minFromMidnightNow = (today-midnight)/1000/60; // min
+      var minFromMidnightTo930 = 570; // min
+      var passed = minFromMidnightNow - minFromMidnightTo930; // min since 930
+      // var passed = 180;
+      // 30px = 15 min
+      var res = 20/15;
+      var move = passed * res;
+      var headerH = $(this).parent().outerHeight();
+      // move = move + headerH;
+      move = headerH + move;
+      // max 540 min
+      if(passed > 0 && passed < 540) {
+        $('.redline').css({ 'top': move }).show();
+      }
+    });
+  }
+  redline();
 
   function hidePopOver() {
     $('#popover a').on('click touchend', function(){
