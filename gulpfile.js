@@ -28,6 +28,7 @@ var paths = {
 			'./public/js/ratchet/ratchet.min.js',
 			'./public/js/addtohomescreen/addtohomescreen.min.js',
 			'./public/js/js-cookie/js-cookie.js',
+      // './public/js/jquery-media/jquery-media-0.99.js',
 			'./public/js/engine.js',
 		],
 		output: './public/js/'

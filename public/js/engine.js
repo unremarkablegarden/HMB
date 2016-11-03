@@ -20,6 +20,7 @@ $(function() {
     bindHelp();
     programmView();
     redline();
+    pdfView();
   });
 
   var homeHelp = addToHomescreen({
@@ -50,22 +51,43 @@ $(function() {
         var tv = $('.time-view');
         // change view
         if(t.hasClass('itemview')) {
-          tv.fadeOut(300, function(){
-            iv.fadeIn(300);
-          });
+          tv.hide();
+          iv.show();
         }
         else if(t.hasClass('timeview')) {
-          iv.fadeOut(300, function(){
-            tv.fadeIn(300);
-          });
+          iv.hide();
+          tv.show();
         }
+        $('.pdf-viewer').hide();
       }
       // update menu
-      $('.programmViewMenu.tab-item').removeClass('active');
+      $('nav .tab-item').removeClass('active');
       p.addClass('active');
     });
   }
   programmView();
+
+  function pdfView() {
+    $('a.pdfview').click(function(e){
+      e.preventDefault();
+    });
+    $('a.pdfview').unbind('touchend').on('touchend', function(e){
+      //  http://docs.google.com/gview?url=http://events.hartmannbund.de/files/Programm.pdf&embedded=true
+      // var pdf = $(this).attr('href');
+      // var viewer = $('.pdf-viewer');
+      // viewer.find('embed').attr('src', pdf);
+      // viewer.show();
+      var viewer = $('.pdf-viewer');
+      var nav = $('nav.bar-tab');
+      nav.find('.tab-item').removeClass('active');
+      if( viewer.is(':hidden') ) {
+        viewer.show();
+        $('.view').hide();
+        nav.find('.pdf').addClass('active');
+      }
+    });
+  }
+  pdfView();
 
   function checkLock() {
     var pw = 'hbhv';
