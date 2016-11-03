@@ -2,6 +2,26 @@
 $(function() {
   // Cookies.remove('hartmannevents');
 
+
+  function bindDesktopLinks() {
+    var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+    ismobile2 =
+    navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i);
+    if( ! ismobile && ! ismobile2 ) {
+      $('a').each(function(){
+        var ignore = $(this).data('ignore');
+        if(ignore !== 'push') {
+          $(this).one('click', function() {
+                    var href = $(this).attr('href');
+                    var transition = $(this).data('transition');
+                    PUSH({url: href, transition: transition});
+                  });
+        }
+      });
+    }
+  }
+  bindDesktopLinks();
+
   // var fb = new FingerBlast ('a');
 
   // $(document).on('click', 'a[href]', function(event) {
@@ -21,6 +41,7 @@ $(function() {
     programmView();
     redline();
     pdfView();
+    bindDesktopLinks();
   });
 
   var homeHelp = addToHomescreen({
