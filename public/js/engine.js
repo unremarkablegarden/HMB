@@ -313,6 +313,7 @@ function togglePDF() {
       .attr('src', pdf);
     text.hide();
     content.append(iframe);
+    t.removeClass('active');
   });
 }
 togglePDF();
