@@ -11,6 +11,11 @@ block nav
 					div.Hspacer
 					= resolution
 
+	if data.unterlage.pdf
+		nav.bar.bar-tab.unterlage
+			.tab-item(data-pdf="#{data.unterlage.pdf}").active.pdf
+				span.icon.ion-ios-printer-outline
+				span.tab-label PDF
 					
 
 block content
