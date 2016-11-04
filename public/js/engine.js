@@ -177,7 +177,6 @@ $(function() {
         // move = move + headerH;
         move = headerH + move;
         // max 540 min
-        console.log(move);
         if(passed > 0 && passed < 540) {
           $('.redline').css({ 'top': move }).show();
         }

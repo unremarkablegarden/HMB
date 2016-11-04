@@ -19,7 +19,8 @@ var Types = keystone.Field.Types;
  	type: { type: Types.Select, options: 'resolutionen, referenzen', default: 'resolutionen', initial: true, index: true },
   textNumbered: { type: Types.Code, language: 'html', label: 'Text with numbered lines' },
   text: { type: Types.Html, wysiwyg: true, label: 'Info' },
-  date: { type: Types.Date, default: Date.now }
+  date: { type: Types.Date, default: Date.now },
+  pdf: { type: Types.Url, label: 'Google Docs embed URL' }
 
  });
 
