@@ -169,10 +169,8 @@ $(function() {
       var move = passed * res;
       // var headerH = $(this).closest('.table-view-divider').outerHeight();
       var headerH = 48;
-      console.log(move);
       // move = move + headerH;
       move = headerH + move;
-      console.log(move);
       // max 540 min
       if(passed > 0 && passed < 540) {
         $('.redline').css({ 'top': move }).show();
