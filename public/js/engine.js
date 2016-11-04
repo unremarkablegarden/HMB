@@ -157,8 +157,9 @@ $(function() {
     var todayString = String(D) + String(M) + String(Y);
     // var todayString = "4112016";
     // select today
-    $('*[data-date="'+todayString+'"]').each(function(){
+    $('h5[data-date="'+todayString+'"]').each(function(){
       var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
+
       var midnight = new Date(niceDate);
       var minFromMidnightNow = (today-midnight)/1000/60; // min
       var minFromMidnightTo930 = 570; // min
