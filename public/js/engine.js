@@ -39,7 +39,7 @@ $(function() {
     checkLock();
     bindHelp();
     programmView();
-    redline();
+    redlineTimer();
     pdfView();
     bindDesktopLinks();
   });
@@ -157,28 +157,43 @@ $(function() {
     var todayString = String(D) + String(M) + String(Y);
     // var todayString = "4112016";
     // select today
-    $('h5[data-date="'+todayString+'"]').each(function(){
-      var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
+    // $('h5[data-date="'+todayString+'"]').each(function(){
+    $('.time-view .table-view-divider h5').each(function() {
+      var titleDate = $(this).data('date');
 
-      var midnight = new Date(niceDate);
-      var minFromMidnightNow = (today-midnight)/1000/60; // min
-      var minFromMidnightTo930 = 570; // min
-      var passed = minFromMidnightNow - minFromMidnightTo930; // min since 930
-      // var passed = 180;
-      // 30px = 15 min
-      var res = 20/15;
-      var move = passed * res;
-      // var headerH = $(this).closest('.table-view-divider').outerHeight();
-      var headerH = 48;
-      // move = move + headerH;
-      move = headerH + move;
-      // max 540 min
-      if(passed > 0 && passed < 540) {
-        $('.redline').css({ 'top': move }).show();
+      if(titleDate) {
+        var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
+        var midnight = new Date(niceDate);
+        var midnight = new Date(Y, (M-1), D);
+        // alert(midnight);
+        var minFromMidnightNow = (today-midnight)/1000/60; // min
+        var minFromMidnightTo930 = 570; // min
+        var passed = minFromMidnightNow - minFromMidnightTo930; // min since 930
+        // 30px = 15 min
+        var res = 20/15;
+        var move = passed * res;
+        // var headerH = $(this).closest('.table-view-divider').outerHeight();
+        var headerH = 48;
+        // move = move + headerH;
+        move = headerH + move;
+        // max 540 min
+        console.log(move);
+        if(passed > 0 && passed < 540) {
+          $('.redline').css({ 'top': move }).show();
+        }
       }
     });
   }
-  redline();
+  function redlineTimer() {
+    redline();
+    clearInterval(updateRedline);
+    var updateRedline = setInterval(function() {
+      redline();
+    }, 60 * 1000);
+  }
+  redlineTimer();
+
+
 
   function hidePopOver() {
     $('#popover a').on('click touchend', function(){
