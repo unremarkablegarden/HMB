@@ -161,8 +161,9 @@ $(function() {
     // $('h5[data-date="'+todayString+'"]').each(function(){
     $('.time-view .table-view-divider h5').each(function() {
       var titleDate = $(this).data('date');
+      console.log(titleDate+ ' / '+ todayString);
 
-      if(titleDate) {
+      if(titleDate && titleDate == todayString) {
         var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
         var midnight = new Date(niceDate);
         var midnight = new Date(Y, (M-1), D);
@@ -179,7 +180,7 @@ $(function() {
         move = headerH + move;
         // max 540 min
         if(passed > 0 && passed < 540) {
-          $('.redline').css({ 'top': move }).show();
+          $(this).parent().find('.redline').css({ 'top': move }).show();
         }
       }
     });

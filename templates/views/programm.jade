@@ -53,7 +53,6 @@ block content
 
 		.time-view.view
 			+welcomeIcon(locals.title, 'ion-clock')
-			.redline
 			div.table-view.card
 				- var date
 				each result, i in data.results
@@ -63,6 +62,7 @@ block content
 						div.table-view-divider
 							- var germanDate = result._.date.moment().locale('de').format('Do MMMM')
 							- var normalDate = result._.date.moment().format('DMYYYY')
+							.redline
 							h5(data-date=normalDate)= germanDate
 					
 					- var start = result.start
