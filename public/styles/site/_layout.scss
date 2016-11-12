@@ -403,9 +403,20 @@ img.portrait, div.portrait {
   right: -100vw;
 }
 .photos, .videos {
-  margin-top: 10px;
+  // margin-top: 10px;
+  margin-bottom: 60px;
   display: none;
   position: relative;
+}
+
+.modal .content {
+  background: black;
+  display: flex;
+  align-items: center;
+}
+.slider img {
+  max-width: 100%;
+  height: auto;
 }
 
 .galleries {

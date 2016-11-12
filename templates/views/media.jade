@@ -25,22 +25,35 @@ block content
 		- var noPhotos = "Noch keine Fotos vorhanden"
 		- var noVideos = "Noch keine Videos vorhanden"
 		
-		div.card
-			div.table-view
-				div.table-view-cell
-					h5= after
+		//- div.card
+		//- 	div.table-view
+		//- 		div.table-view-cell
+		//- 			center
+		//- 				h5 Fotos und Videos
 
 		div.photos
-			div.table-view-card
-				div.table-view-cell
-					p= noPhotos
-
-			//- each result, i in data.results
-			//- 	if result.type == 'photos'
-			//- 		div.table-view.card.photo
-			//- 			- var src = result._.heroImage.fit(640, 640)
-			//- 			a(href="#").gallery
-			//- 				img(src=src).hero
+			each result, i in data.results
+				if result.type == 'photos'
+					div.table-view.card.photo
+						- var src = result._.heroImage.fit(640, 640)
+						- var modalLink = '#' + result.title
+						a(href=modalLink)
+							img(src=src).hero
+							h5= result.title
+		
+		each result, i in data.results
+			if result.type == 'photos'
+				.modal(id=result.title)
+					header.bar.bar-nav
+						- var modalLink = '#' + result.title
+						a(href=modalLink).icon.icon-close.pull-right
+						h1.title= result.title
+					.content
+						.slider
+							.slide-group
+								each image in result.images
+									.slide
+										img(src=image.limit(1024,1024))
 
 		div.videos
 			each result, i in data.results
