@@ -28,7 +28,6 @@ var paths = {
 			'./public/js/ratchet/ratchet.min.js',
 			'./public/js/addtohomescreen/addtohomescreen.min.js',
 			'./public/js/js-cookie/js-cookie.js',
-      // './public/js/jquery-media/jquery-media-0.99.js',
 			'./public/js/engine.js',
 		],
 		output: './public/js/'
@@ -55,7 +54,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest(paths.js.output));
 });
 
-gulp.task('runKeystone', shell.task('node keystone.js'));
+gulp.task('runKeystone', shell.task('node keystone1-p81.js'));
 
 gulp.task('watch', [
   'watch:sass',

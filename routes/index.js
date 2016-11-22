@@ -23,8 +23,6 @@ var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
-// keystone.pre('routes', middleware.initErrorHandlers);
-// keystone.pre('routes', middleware.pjax);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
@@ -36,12 +34,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
-	// app.get('/', routes.views.index);
 	app.get('/', routes.views.homepage);
-	// app.get('/blog/:category?', routes.views.blog);
-	// app.get('/blog/post/:post', routes.views.post);
-	// app.get('/gallery', routes.views.gallery);
-
 	app.get('/programm', routes.views.programm);
 	app.get('/locations', routes.views.locations);
 	app.get('/akteure', routes.views.akteure);
@@ -50,16 +43,6 @@ exports = module.exports = function (app) {
 	app.get('/unterlagen', routes.views.unterlagen);
 	app.get('/unterlagen/:unterlage', routes.views.unterlage);
 	app.get('/media', routes.views.media);
-
-
-
-
-	// app.get('/programm', routes.views.programm);
-	// app.get('/locations', routes.views.locations);
-	// app.get('/akteure', routes.views.akteure);
-	// app.get('/veranstaltungen', routes.views.veranstaltungen);
-	// app.get('/unterlagen', routes.views.unterlagen);
-	// app.get('/media', routes.views.media);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

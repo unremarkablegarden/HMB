@@ -6,9 +6,25 @@ block nav
 			span.icon.ion-ios-information-outline.green
 		
 		+home-button()
-		h1.title= locals.title
+		
+		h1.title
+			a(href="#popover2")
+				span
+					div.Hspacer
+					= locals.title + " "
+					span.icon.icon-caret
+		
+		
 
 block content
+	div#popover2.popover
+		ul.table-view
+			li.table-view-cell
+				a(href='http://events.hartmannbund.de:81', data-ignore="push") Hauptversammlung 2016
+			li.table-view-cell
+				a(href='http://events.hartmannbund.de', data-ignore="push") Kaminabend 2016
+				
+					
 	.content.homepage
 		.welcome
 			- var result = data.results[0]

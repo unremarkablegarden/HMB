@@ -18,10 +18,6 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 	'adminui custom styles': 'customAdmin/index.less',
-	// 'wysiwyg additional options': {
-	// 	paste_as_text: true,
-	// 	plugins: 'paste',
-	// }
 });
 
 // Load your project's Models
@@ -54,6 +50,9 @@ keystone.set('nav', {
 	system: 'users',
 	// testing: ['posts', 'post-categories', 'galleries'],
 });
+
+keystone.set('mongo', 'mongodb://localhost/hartmannbund-live')
+// keystone.set('port', 81);
 
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();
