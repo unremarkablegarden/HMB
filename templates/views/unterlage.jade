@@ -4,7 +4,12 @@ block nav
 	header.bar.bar-nav
 		+back-button('/unterlagen')
 		+home-button()
-		- var resolution = 'Resolution ' + data.unterlage.number
+		- var number = data.unterlage.number
+		if number.length
+			- var resolution = 'Resolution ' + data.unterlage.number
+		else
+			- var resolution = data.unterlage.title
+			
 		h1.title
 			a(href="#popover")
 				span

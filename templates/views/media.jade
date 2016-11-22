@@ -51,9 +51,7 @@ block content
 								img(src=src).hero
 								h5= result.title
 			else
-				div.table-view.card.none
-					div.table-view-cell.normal
-						p= noPhotos
+				p= noPhotos
 			
 		each result, i in data.results
 			if result.type == 'photos'
@@ -81,9 +79,7 @@ block content
 						div.table-view.card.video
 							!= embedCode
 			else				
-				div.table-view-card.none
-					div.table-view-cell.normal
-						p= noVideos
+				p= noVideos
 							
 			
 //- title: { type: String, required: true, index: true, initial: true },
