@@ -10,7 +10,11 @@ block content
 	.content.unterlagen
 		+welcomeIcon(locals.title, 'ion-document-text')
 		
-		h3.heading.content-padded= data.results[0].type
+		
+		- if( data.results.length )
+			- var type = data.results[0].type
+			h3.heading.content-padded= type
+			
 		div.table-view.card
 			each result, i in data.results
 				div.table-view-cell

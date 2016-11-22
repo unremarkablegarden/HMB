@@ -31,9 +31,10 @@ block content
 					h5= result.title
 				
 				- var leaders = result.akteure
-				- var location = result.location.info
+				if result.location
+					- var location = result.location.name
 				
-				if leaders
+				- if( leaders.length )
 					div.table-view-cell.table-view-divider
 						each leader in leaders
 							.link
