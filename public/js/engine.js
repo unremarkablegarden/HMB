@@ -223,8 +223,10 @@ $(function() {
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           // $('.content').animate({
+          // var currentScroll = $(this).closest('.content')
+          var distance = target.offset().top - 60
           $(this).closest('.content').animate({
-            scrollTop: target.offset().top - 60
+            scrollTop: += distance
           }, 500);
           return false;
         }
