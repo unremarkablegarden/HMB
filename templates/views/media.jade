@@ -32,19 +32,28 @@ block content
 			div.table-view-cell.normal
 				p= msg2
 
+	- var nPhotos = 0
+	- var nVideos = 0
+	each result, i in data.results
+		if result.type == 'photos'
+			- var nPhotos = nPhotos + 1
+		if result.type == 'video'
+			- var nVideos = nVideos + 1
+			
 		div.photos
-			each result, i in data.results
-				if result.type == 'photos'
-					div.table-view.card.photo
-						- var src = result._.heroImage.fit(640, 640)
-						- var modalLink = '#' + result.title
-						a(href=modalLink)
-							img(src=src).hero
-							h5= result.title
-				else
-					div.table-view.card
-						div.table-view-cell.normal
-							p= noPhotos
+			if nPhotos > 0
+				each result, i in data.results
+					if result.type == 'photos'
+						div.table-view.card.photo
+							- var src = result._.heroImage.fit(640, 640)
+							- var modalLink = '#' + result.title
+							a(href=modalLink)
+								img(src=src).hero
+								h5= result.title
+			else
+				div.table-view.card.none
+					div.table-view-cell.normal
+						p= noPhotos
 		
 		each result, i in data.results
 			if result.type == 'photos'
@@ -61,19 +70,20 @@ block content
 										img(src=image.limit(1024,1024))
 
 		div.videos
-			each result, i in data.results
-				if result.type == 'video'
-					//- div.table-view-cell.normal
-					- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
-					- var W = 288
-					- var H = W * 0.5625
-					- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-					div.table-view.card.video
-						!= embedCode
-				else
-					div.table-view-card
-						div.table-view-cell.normal
-							p= noVideos
+			if nVideos > 0
+				each result, i in data.results
+					if result.type == 'video'
+						//- div.table-view-cell.normal
+						- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
+						- var W = 288
+						- var H = W * 0.5625
+						- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+						div.table-view.card.video
+							!= embedCode
+			else				
+				div.table-view-card.none
+					div.table-view-cell.normal
+						p= noVideos
 							
 			
 //- title: { type: String, required: true, index: true, initial: true },
