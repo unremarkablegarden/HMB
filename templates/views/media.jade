@@ -25,13 +25,12 @@ block content
 		- var noPhotos = "Noch keine Fotos vorhanden"
 		- var noVideos = "Noch keine Videos vorhanden"
 		- var msg2 = "Hier finden Sie nach der Veranstaltung einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
-		
-		div.card
-			div.table-view
-				div.table-view-cell
-					center
-						h5 Fotos und Videos
-						p= msg2
+
+		div.table-view.card
+			div.table-view-divider
+				h5 Fotos und Videos			
+			div.table-view-cell.normal
+				p= msg2
 
 		div.photos
 			each result, i in data.results
@@ -42,6 +41,10 @@ block content
 						a(href=modalLink)
 							img(src=src).hero
 							h5= result.title
+				else
+					div.table-view.card
+						div.table-view-cell.normal
+							p= noPhotos
 		
 		each result, i in data.results
 			if result.type == 'photos'
@@ -69,8 +72,9 @@ block content
 						!= embedCode
 				else
 					div.table-view-card
-						div.table-view-cell
+						div.table-view-cell.normal
 							p= noVideos
+							
 			
 //- title: { type: String, required: true, index: true, initial: true },
 //- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },
