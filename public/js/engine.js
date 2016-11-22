@@ -36,7 +36,7 @@ $(function() {
     backToTop();
     hidePopOver();
     mediaSwitch();
-    checkLock();
+    // checkLock();
     bindHelp();
     programmView();
     redlineTimer();
@@ -146,7 +146,7 @@ $(function() {
       });
     }
   }
-  checkLock();
+  // checkLock();
 
   function redline() {
     // format('DMYYYY')
