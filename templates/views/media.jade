@@ -32,14 +32,14 @@ block content
 			div.table-view-cell.normal
 				p= msg2
 
-	- var nPhotos = 0
-	- var nVideos = 0
-	each result, i in data.results
-		if result.type == 'photos'
-			- var nPhotos = nPhotos + 1
-		if result.type == 'video'
-			- var nVideos = nVideos + 1
-			
+		- var nPhotos = 0
+		- var nVideos = 0
+		each result, i in data.results
+			if result.type == 'photos'
+				- var nPhotos = nPhotos + 1
+			if result.type == 'video'
+				- var nVideos = nVideos + 1
+				
 		div.photos
 			if nPhotos > 0
 				each result, i in data.results
@@ -54,7 +54,7 @@ block content
 				div.table-view.card.none
 					div.table-view-cell.normal
 						p= noPhotos
-		
+			
 		each result, i in data.results
 			if result.type == 'photos'
 				.modal(id=result.title)
