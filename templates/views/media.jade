@@ -10,7 +10,7 @@ block nav
 			.tab-item.photos-tab
 				a(href="#photos")
 					span.icon.ion-ios-photos-outline
-					span.tab-label Photos
+					span.tab-label Fotos
 			.tab-item.videos-tab
 				a(href="#videos")
 					span.icon.ion-ios-videocam-outline
@@ -24,12 +24,14 @@ block content
 		- var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
 		- var noPhotos = "Noch keine Fotos vorhanden"
 		- var noVideos = "Noch keine Videos vorhanden"
+		- var msg2 = "Hier finden Sie nach der Veranstaltung einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
 		
-		//- div.card
-		//- 	div.table-view
-		//- 		div.table-view-cell
-		//- 			center
-		//- 				h5 Fotos und Videos
+		div.card
+			div.table-view
+				div.table-view-cell
+					center
+						h5 Fotos und Videos
+						p= msg2
 
 		div.photos
 			each result, i in data.results
