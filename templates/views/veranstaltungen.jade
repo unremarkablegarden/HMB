@@ -29,13 +29,20 @@ block content
 			div.table-view.card
 				div.table-view-divider
 					h5= result.title
-				div.table-view-cell.table-view-divider
-					each leader in result.akteure
-						.link
-							a(href="/akteure/" + leader.slug, data-transition="slide-in")
-								!= leader.name
-				div.table-view-cell.table-view-divider
-					div.flex-inline
-						!= result.location.info
+				
+				- var leaders = result.akteure
+				- var location = result.location.info
+				
+				if leaders
+					div.table-view-cell.table-view-divider
+						each leader in leaders
+							.link
+								a(href="/akteure/" + leader.slug, data-transition="slide-in")
+									!= leader.name
+				if location
+					div.table-view-cell.table-view-divider
+						div.flex-inline
+							!= location
+				
 				div.table-view-cell.normal
 					!= result.info			
