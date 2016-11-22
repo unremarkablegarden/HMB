@@ -51,7 +51,9 @@ block content
 								img(src=src).hero
 								h5= result.title
 			else
-				p= noPhotos
+				div.table-view.card
+					div.table-view-cell.normal
+						p= noPhotos
 			
 		each result, i in data.results
 			if result.type == 'photos'
@@ -78,8 +80,10 @@ block content
 						- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 						div.table-view.card.video
 							!= embedCode
-			else				
-				p= noVideos
+			else
+				div.table-view.card
+					div.table-view-cell.normal
+						p= noVideos
 							
 			
 //- title: { type: String, required: true, index: true, initial: true },
