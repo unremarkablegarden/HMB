@@ -5,7 +5,7 @@ block nav
 		+back-button('/unterlagen')
 		+home-button()
 		- var number = data.unterlage.number
-		if number.length
+		if number
 			- var resolution = 'Resolution ' + data.unterlage.number
 		else
 			- var resolution = data.unterlage.title
