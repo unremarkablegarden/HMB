@@ -13,7 +13,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function(next) {
 		Akteure.model.find()
-									.sort(lastName)
+									.sort('lastName')
 									.exec(function(err, result) {
 			locals.data.results = result;
 			// console.log(result)
