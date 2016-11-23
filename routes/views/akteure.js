@@ -12,7 +12,9 @@ exports = module.exports = function (req, res) {
 			locals.data = { results: [] };
 
 	view.on('init', function(next) {
-		Akteure.model.find().exec(function(err, result) {
+		Akteure.model.find()
+									.sort(lastName)
+									.exec(function(err, result) {
 			locals.data.results = result;
 			// console.log(result)
 			next(err);
