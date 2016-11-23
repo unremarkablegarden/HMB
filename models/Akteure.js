@@ -18,7 +18,7 @@ Akteure.add({
 	name: { type: String, required: true, index: true, initial: true },
 	bio: { type: Types.Html, wysiwyg: true, height: 150 },
 	image: { type: Types.CloudinaryImage },
-	lastName: { type: String, required: true, label: 'Last name (for sorting)' }
+	lastName: { type: String, required: true, initial: false, label: 'Last name (for sorting)' }
 });
 
 /**
