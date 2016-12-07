@@ -15,10 +15,10 @@ var Akteure = new keystone.List('Akteure', {
 });
 
 Akteure.add({
-	name: { type: String, required: true, index: true, initial: true },
+	name: { type: String, required: true, index: true, initial: true, label: 'Full name' },
 	bio: { type: Types.Html, wysiwyg: true, height: 150 },
 	image: { type: Types.CloudinaryImage },
-	lastName: { type: String, required: true, initial: false, label: 'Last name (for sorting)' }
+	lastName: { type: String, required: true, initial: true, label: 'Last name (for sorting)' }
 });
 
 /**
