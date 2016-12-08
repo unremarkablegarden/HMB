@@ -43,6 +43,7 @@ $(function() {
     pdfView();
     bindDesktopLinks();
     togglePDF();
+    fuckModals();
   });
 
   var homeHelp = addToHomescreen({
@@ -305,6 +306,16 @@ $(function() {
     });
   }
   mediaSwitch();
+
+  function fuckModals() {
+    $('.galleries .photos a').on('touchend', function(){
+      $('header:first').hide();
+    });
+    $('.modal a.icon-close').on('touchend', function(){
+      $('header:first').show();
+    });
+  }
+  fuckModals();
 
 });
 
