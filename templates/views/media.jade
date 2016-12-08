@@ -48,22 +48,8 @@ block content
 						- var modalLink = '#' + result.title
 						a(href=modalLink)
 							img(src=src).hero
-							h5= result.title
-		
-	each result, i in data.results
-		if result.type == 'photos'
-			.modal(id=result.title)
-				header.bar.bar-nav
-					- var modalLink = '#' + result.title
-					a(href=modalLink).icon.icon-close.pull-right
-					h1.title= result.title
-				.content
-					.slider
-						.slide-group
-							each image in result.images
-								.slide
-									img(src=image.limit(1024,1024))
-
+							h5= result.title							
+							
 		div.videos
 			each result, i in data.results
 				if result.type == 'video'
@@ -78,6 +64,22 @@ block content
 				// 	div.table-view-card
 				// 		div.table-view-cell
 				// 			p= noVideos
+
+	each result, i in data.results
+		if result.type == 'photos'
+			.modal(id=result.title)
+				header.bar.bar-nav
+					- var modalLink = '#' + result.title
+					a(href=modalLink).icon.icon-close.pull-right
+					h1.title= result.title
+				.content
+					.slider
+						.slide-group
+							each image in result.images
+								.slide
+									img(src=image.limit(1024,1024))
+
+
 
 //- title: { type: String, required: true, index: true, initial: true },
 //- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },

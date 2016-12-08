@@ -397,9 +397,10 @@ img.portrait, div.portrait {
 }
 .photos {
   right: -100vw;
+  min-height: 60vh;
 }
 .videos {
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   right: -100vw;
 }
 .photos, .videos {
@@ -416,15 +417,29 @@ img.portrait, div.portrait {
 }
 
 .modal.active {
-  z-index: 10 !important;
+  // z-index: 11 !important;
 }
 .modal.active .content {
-  z-index: 10 !important;
-  padding-top: 0;
-  top: 44px;
+  // z-index: 11 !important;
+  // padding-top: 0;
+  // top: 44px;
 }
 .modal.active .bar {
-  z-index: 20 !important;
+  // z-index: 20 !important;
+}
+
+.modal header.bar.bar-nav {
+  -webkit-transform: translateZ(0);
+}
+.modal header .title {
+  position: relative;
+  z-index: 20;
+}
+.modal header .icon-close {
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: -10px;
+  z-index: 999;
 }
 
 .slider .slide-group .slide {
