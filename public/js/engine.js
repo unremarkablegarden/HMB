@@ -288,6 +288,7 @@ $(function() {
         }).removeClass('open');
         $('.photos').show().animate({ 'right': 0 }, 350).addClass('open');
       }
+      $('.welcome_info:visible').hide()
       e.preventDefault();
     });
     videosTab.unbind().on('touchstart', function(e) {
@@ -299,6 +300,7 @@ $(function() {
         }).removeClass('open');
         $('.videos').show().animate({ 'right': 0 }, 350).addClass('open');
       }
+      $('.welcome_info:visible').hide()
       e.preventDefault();
     });
   }
