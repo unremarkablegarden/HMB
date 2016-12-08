@@ -310,9 +310,11 @@ $(function() {
   function fuckModals() {
     $('.galleries .photos a').on('touchend', function(){
       $('header:first').hide();
+      $('.photovideotabs').hide();
     });
     $('.modal a.icon-close').on('touchend', function(){
       $('header:first').show();
+      $('.photovideotabs').show();
     });
   }
   fuckModals();
