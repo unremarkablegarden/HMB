@@ -416,8 +416,17 @@ img.portrait, div.portrait {
 }
 
 .modal.active {
-  z-index: 999;
+  z-index: 10 !important;
 }
+.modal.active .content {
+  z-index: 10 !important;
+  padding-top: 0;
+  top: 44px;
+}
+.modal.active .bar {
+  z-index: 20 !important;
+}
+
 .slider .slide-group .slide {
   vertical-align: middle;
 }

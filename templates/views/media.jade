@@ -25,7 +25,7 @@ block content
 		- var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
 		- var noPhotos = "Noch keine Fotos vorhanden"
 		- var noVideos = "Noch keine Videos vorhanden"
-		- var msg2 = "Hier finden Sie nach der Veranstaltung einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
+		- var msg2 = "Hier finden Sie einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
 
 		div.table-view.card.welcome_info
 			div.table-view-divider
@@ -50,19 +50,19 @@ block content
 							img(src=src).hero
 							h5= result.title
 		
-		each result, i in data.results
-			if result.type == 'photos'
-				.modal(id=result.title)
-					header.bar.bar-nav
-						- var modalLink = '#' + result.title
-						a(href=modalLink).icon.icon-close.pull-right
-						h1.title= result.title
-					.content
-						.slider
-							.slide-group
-								each image in result.images
-									.slide
-										img(src=image.limit(1024,1024))
+	each result, i in data.results
+		if result.type == 'photos'
+			.modal(id=result.title)
+				header.bar.bar-nav
+					- var modalLink = '#' + result.title
+					a(href=modalLink).icon.icon-close.pull-right
+					h1.title= result.title
+				.content
+					.slider
+						.slide-group
+							each image in result.images
+								.slide
+									img(src=image.limit(1024,1024))
 
 		div.videos
 			each result, i in data.results
