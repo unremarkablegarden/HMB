@@ -414,6 +414,15 @@ img.portrait, div.portrait {
   display: flex;
   align-items: center;
 }
+
+.modal.active {
+  z-index: 999;
+}
+.slider .slide-group .slide {
+  vertical-align: middle;
+}
+
+
 .slider img {
   max-width: 100%;
   height: auto;
