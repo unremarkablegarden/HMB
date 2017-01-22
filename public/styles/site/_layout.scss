@@ -401,11 +401,11 @@ img.portrait, div.portrait {
   right: -100vw;
   min-height: 60vh;
 }
-.videos {
+.videos, .files {
   // margin-bottom: 50px;
   right: -100vw;
 }
-.photos, .videos {
+.photos, .videos, .files {
   // margin-top: 10px;
   margin-bottom: 60px;
   display: none;

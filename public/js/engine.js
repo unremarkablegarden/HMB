@@ -280,6 +280,8 @@ $(function() {
     var welcome = $('.welcome')
     var photosTab = $('.tab-item.photos-tab');
     var videosTab = $('.tab-item.videos-tab');
+    var filesTab = $('.tab-item.files-tab');
+
     photosTab.unbind().on('touchstart', function(e) {
       if( ! photosTab.hasClass('active') ) {
         $('.tab-item.active').removeClass('active');
@@ -304,6 +306,22 @@ $(function() {
       $('.welcome_info:visible').hide()
       e.preventDefault();
     });
+    filesTab.unbind().on('touchstart', function(e) {
+      if( ! videosTab.hasClass('active') ) {
+        $('.tab-item.active').removeClass('active');
+        filesTab.addClass('active')
+        $('.open').animate({ 'right': '100vw' }, 350, function(){
+          $(this).css('right', '-100vw');
+        }).removeClass('open');
+        $('.files').show().animate({ 'right': 0 }, 350).addClass('open');
+      }
+      $('.welcome_info:visible').hide()
+      e.preventDefault();
+    });
+    // $('.files a').bind('touchstart', function(e) {
+    //   $(this).trigger('click');
+    //   e.preventDefault();
+    // });
   }
   mediaSwitch();
 
