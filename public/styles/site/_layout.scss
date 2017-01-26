@@ -398,7 +398,7 @@ img.portrait, div.portrait {
   height: auto;
 }
 .photos {
-  right: -100vw;
+  // right: -100vw;
   min-height: 60vh;
 }
 .videos, .files {
@@ -406,10 +406,13 @@ img.portrait, div.portrait {
   right: -100vw;
 }
 .photos, .videos, .files {
-  // margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 60px;
-  display: none;
   position: relative;
+}
+
+.videos, .files {
+  display: none;
 }
 
 .modal .content {

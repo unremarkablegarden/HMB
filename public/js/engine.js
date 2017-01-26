@@ -277,7 +277,7 @@ $(function() {
   // menuTapFX();
 
   function mediaSwitch() {
-    var welcome = $('.welcome')
+    var welcome = $('.welcome');
     var photosTab = $('.tab-item.photos-tab');
     var videosTab = $('.tab-item.videos-tab');
     var filesTab = $('.tab-item.files-tab');
@@ -294,6 +294,7 @@ $(function() {
       $('.welcome_info:visible').hide()
       e.preventDefault();
     });
+
     videosTab.unbind().on('touchstart', function(e) {
       if( ! videosTab.hasClass('active') ) {
         $('.tab-item.active').removeClass('active');
@@ -306,8 +307,9 @@ $(function() {
       $('.welcome_info:visible').hide()
       e.preventDefault();
     });
+
     filesTab.unbind().on('touchstart', function(e) {
-      if( ! videosTab.hasClass('active') ) {
+      if( ! filesTab.hasClass('active') ) {
         $('.tab-item.active').removeClass('active');
         filesTab.addClass('active')
         $('.open').animate({ 'right': '100vw' }, 350, function(){

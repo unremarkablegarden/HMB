@@ -7,7 +7,7 @@ block nav
 		+popover-title(locals.title)
 
 		nav.bar.bar-tab.photovideotabs
-			.tab-item.photos-tab
+			.tab-item.photos-tab.active
 				a(href="#photos")
 					span.icon.ion-ios-photos-outline
 					span.tab-label Photos
@@ -23,19 +23,19 @@ block nav
 
 block content
 	.content.galleries
-		+welcomeImage(locals.title, "/images/media.svg")
+		// 	+welcomeImage(locals.title, "/images/media.svg")
 
 
-		- var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
-		- var noPhotos = "Noch keine Fotos vorhanden"
-		- var noVideos = "Noch keine Videos vorhanden"
-		- var msg2 = "Hier finden Sie einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
+		// - var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
+		// - var noPhotos = "Noch keine Fotos vorhanden"
+		// - var noVideos = "Noch keine Videos vorhanden"
+		// - var msg2 = "Hier finden Sie einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
 
-		div.table-view.card.welcome_info
-			div.table-view-divider
-				h5 Fotos und Videos			
-			div.table-view-cell.normal
-				p= msg2
+		// div.table-view.card.welcome_info
+		// 	div.table-view-divider
+		// 		h5 Fotos und Videos			
+		// 	div.table-view-cell.normal
+		// 		p= msg2
 
 
 		//- div.card
@@ -44,7 +44,7 @@ block content
 		//- 			center
 		//- 				h5 Fotos und Videos
 
-		div.photos
+		div.photos.open
 			each result, i in data.results
 				if result.type == 'photos'
 					div.table-view.card.photo
