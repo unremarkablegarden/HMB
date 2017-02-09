@@ -21,6 +21,13 @@ block nav
 			.tab-item(data-pdf="#{data.unterlage.pdf}").active.pdf
 				span.icon.ion-ios-printer-outline
 				span.tab-label PDF
+				
+	if data.unterlage.download
+		nav.bar.bar-tab.download
+			- var filename = /[^/]*$/.exec(data.unterlage.download)[0]
+			a(href="#{data.unterlage.download}", download="#{filename}", data-ignore="push").tab-item.active.download
+				span.icon.ion-ios-download-outline
+				span.tab-label Download
 					
 
 block content
