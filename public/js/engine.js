@@ -219,17 +219,29 @@ $(function() {
 
   function aScroll() {
     $('a[href*="#"]:not([href="#"])').unbind('click').on('click', function() {
+      console.log('aScroll click triggered');
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
           // $('.content').animate({
           var currentScroll = $(this).closest('.content').scrollTop();
+          if(!currentScroll) {
+            var noThis = true;
+            currentScroll = $('.content').scrollTop();
+          }
           var distance = (target.offset().top - 60) + currentScroll;
-
-          $(this).closest('.content').animate({
-            scrollTop: distance
-          }, 500);
+          console.log(currentScroll + ', ' + distance);
+          if(noThis) {
+            $('.content').animate({
+              scrollTop: distance
+            }, 500);
+          }
+          else {
+            $(this).closest('.content').animate({
+              scrollTop: distance
+            }, 500);
+          }
           return false;
         }
       }
