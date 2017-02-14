@@ -15,7 +15,7 @@ var Types = keystone.Field.Types;
 
  Unterlagen.add({
  	title: { type: String, required: true, index: true, initial: true },
-  number: { type: Types.Number, label: 'Antrag Nr.', dependsOn: { type: 'resolutionen' } },
+  number: { type: Types.Number, label: 'Antrag Nr.' },
  	type: { type: Types.Select, options: 'resolutionen, referenzen, downloads', default: 'resolutionen', initial: true, index: true },
   textNumbered: { type: Types.Code, language: 'html', label: 'Text with numbered lines', dependsOn: { type: 'resolutionen' } },
   text: { type: Types.Html, wysiwyg: true, label: 'Info' },

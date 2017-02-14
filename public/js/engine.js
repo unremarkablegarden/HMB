@@ -339,6 +339,8 @@ $(function() {
   }
   fuckModals();
 
+
+
 });
 
 function togglePDF() {

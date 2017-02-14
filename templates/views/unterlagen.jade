@@ -17,9 +17,26 @@ block content
 		- var resolutionen = _.filter(data.results, [ 'type', 'resolutionen' ])
 		- var referenzen = _.filter(data.results, [ 'type', 'referenzen' ])
 		- var downloads = _.filter(data.results, [ 'type', 'downloads' ])
-			
+		- var total = 0
+		if resolutionen.length
+			- total = total + 1
+		if referenzen.length
+			- total = total + 1
+		if downloads.length
+			- total = total + 1
+		// buttons
+		if total > 1
+			.bar.bar-standard.bar-header-secondary
+				.segmented-control
+					if resolutionen.length
+						a(href="#resolutionen").control-item Resolutionen
+					if referenzen.length
+						a(href="#referenzen").control-item Referenzen
+					if downloads.length
+						a(href="#downloads").control-item Downloads
 		
 		if resolutionen.length
+			a(name="resolutionen")
 			h3.heading.content-padded Resolutionen
 			div.table-view.card
 				each result, i in resolutionen
@@ -30,6 +47,7 @@ block content
 							= result.title
 
 		if referenzen.length
+			a(name="referenzen")
 			h3.heading.content-padded Referenzen
 			div.table-view.card
 				each result, i in referenzen
@@ -40,6 +58,7 @@ block content
 							= result.title
 
 		if downloads.length
+			a(name="downloads")
 			h3.heading.content-padded Downloads
 			div.table-view.card
 				each result, i in downloads
