@@ -32,8 +32,14 @@ block content
 			
 			div.table-view.card
 				- var date
+				- console.log('---------------')
 				each result, i in data.results
+					//- - var startTime = result.start.split('.')
+					//- - var startH = startTime[0]
+					//- - var startM = startTime[1]
+					//- - newDate = String(result.date.setHours(startH,startM,0,0))
 					- newDate = String(result.date)
+					//- - console.log(result.title + ': ' + result.date)
 					if date !== newDate
 						- date = newDate
 						div.table-view-cell.table-view-divider
@@ -47,6 +53,13 @@ block content
 						div.media-body
 							.program-title= result.title
 							p.more!= result.content
+							if result.akteure.length
+								- console.log('------')
+								- console.log(result.akteure)
+								ul
+									each akt, j in result.akteure
+										li
+											a(href="../akteure/#{akt.slug}")= akt.name
 
 
 		.time-view.view

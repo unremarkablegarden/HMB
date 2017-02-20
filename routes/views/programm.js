@@ -17,6 +17,7 @@ exports = module.exports = function (req, res) {
 
 		Programm.model.find()
 			.sort({date: 1, start: 1})
+			.populate('akteure')
 			.exec(function(err, result) {
 				locals.data.results = result;
 				next(err);

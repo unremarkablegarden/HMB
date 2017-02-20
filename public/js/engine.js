@@ -162,7 +162,7 @@ $(function() {
     // $('h5[data-date="'+todayString+'"]').each(function(){
     $('.time-view .table-view-divider h5').each(function() {
       var titleDate = $(this).data('date');
-      console.log(titleDate+ ' / '+ todayString);
+      // console.log(titleDate+ ' / '+ todayString);
 
       if(titleDate && titleDate == todayString) {
         var niceDate = String(M)+"-"+String(D)+"-"+String(Y);
@@ -231,7 +231,7 @@ $(function() {
             currentScroll = $('.content').scrollTop();
           }
           var distance = (target.offset().top - 60) + currentScroll;
-          console.log(currentScroll + ', ' + distance);
+          // console.log(currentScroll + ', ' + distance);
           if(noThis) {
             $('.content').animate({
               scrollTop: distance
