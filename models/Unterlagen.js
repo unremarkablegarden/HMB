@@ -20,7 +20,7 @@ var Types = keystone.Field.Types;
   textNumbered: { type: Types.Code, language: 'html', label: 'Text with numbered lines', dependsOn: { type: 'resolutionen' } },
   text: { type: Types.Html, wysiwyg: true, label: 'Info' },
   date: { type: Types.Date, default: Date.now, dependsOn: { type: 'resolutionen' } },
-  pdf: { type: Types.Url, label: 'Google Docs embed URL' },
+  pdf: { type: Types.Url, label: 'Google Docs embed URL', dependsOn: { type: 'resolutionen' } },
   download: { type: Types.Url, label: '(or) Download URL', dependsOn: { type: 'downloads' } },
 
  });
