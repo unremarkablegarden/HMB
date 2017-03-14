@@ -23,9 +23,14 @@ mixin pop-over()
   div#popover2.popover
     ul.table-view
       li.table-view-cell
-        a(href='#', data-ignore="push", onclick="javascript:window.location.port=81") Hauptversammlung 2016
+        a(href='/symposium-arbeiten-40/', data-ignore="push") Symposium Arbeiten 4.0
       li.table-view-cell
-        a(href='#', data-ignore="push", onclick="javascript:window.location.port=82") Kaminabend 2016
+        a(href='/kaminabend-2016/', data-ignore="push") Kaminabend 2016
+      li.table-view-cell
+        a(href='/hauptversammlung-2016/', data-ignore="push") Hauptversammlung 2016
+
+      //- li.table-view-cell
+      //-   a(href='#', data-ignore="push", onclick="javascript:window.location.port=81") Hauptversammlung 2016
 
 
 mixin popover-title(title)
