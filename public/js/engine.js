@@ -44,6 +44,7 @@ $(function() {
     bindDesktopLinks();
     togglePDF();
     fuckModals();
+    bindBackbutton();
   });
 
   var homeHelp = addToHomescreen({
@@ -61,6 +62,14 @@ $(function() {
     if(window.navigator.standalone) help.remove();
   }
   bindHelp();
+
+  function bindBackbutton() {
+    var thisURL = window.location.href;
+    var goback = thisURL.replace(/[^\/]+$/,'');
+    console.log('backbutton dynamic link = ' + goback);
+    $('.backButton').attr('href', goback);
+  }
+  bindBackbutton();
 
   function programmView() {
     $('.programmViewMenu a').click(function(e){
