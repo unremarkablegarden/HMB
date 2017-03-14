@@ -36,5 +36,12 @@ updates
 
 public/styles/site.css
 public/styles/script.min.js
+public/js/script.min.js
+
+keystone2-local.js
+
+admin styles
 
 gulpfile.js
+
+routes/middleware.js
