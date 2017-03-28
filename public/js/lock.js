@@ -7,7 +7,7 @@ $(function() {
 
   function checkLock() {
     var locked = $('.locked');
-    var unlockedCookie = Cookies.get('hartmannevents');
+    var unlockedCookie = Cookies.get('hartmannevents'+pw);
     if( unlockedCookie == 'unlocked') {
       locked.hide();
     }
@@ -23,7 +23,7 @@ $(function() {
             // hide onscreen keyboard
             t.blur()
             // write cookie
-            Cookies.set('hartmannevents', 'unlocked', { expires: 14 });
+            Cookies.set('hartmannevents'+pw, 'unlocked', { expires: 14 });
             // hide lock screen
             $('.unlocker').addClass('unlockit');
             window.setTimeout(function() {
