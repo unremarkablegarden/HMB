@@ -16,12 +16,12 @@ var autoprefixerOptions = {
 var paths = {
 	// 'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'],
 	'style': {
-		all: './public/styles/**/*.scss',
+		// all: './public/styles/**/*.scss',
 		site: './public/styles/site.scss',
 		output: './public/styles/'
 	},
 	'js': {
-		all: '/public/js/**/*.js',
+		// all: '/public/js/**/*.js',
 		list: [
 			'./public/js/ratchet/standalone-fix.js',
 			// './public/js/jquery/jquery-2.2.4.min.js',
