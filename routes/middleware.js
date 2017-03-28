@@ -17,13 +17,15 @@ var _ = require('lodash');
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
+	var event = '/'; // i.e. /kaminabend-2016/
+	res.locals.event = event;
 	res.locals.navLinks = [
-		{ label: 'Programm', key: 'programm', href: '/programm' },
-		{ label: 'Locations', key: 'locations', href: '/locations' },
-		{ label: 'Akteure', key: 'akteure', href: '/akteure' },
-		{ label: 'Veranstaltungen', key: 'veranstaltungen', href: '/veranstaltungen' },
-		{ label: 'Unterlagen', key: 'unterlagen', href: '/unterlagen' },
-		{ label: 'Media', key: 'media', href: '/media' },
+		{ label: 'Programm', key: 'programm', href: event+'programm' },
+		{ label: 'Locations', key: 'locations', href: event+'locations' },
+		{ label: 'Akteure', key: 'akteure', href: event+'akteure' },
+		{ label: 'Veranstaltungen', key: 'veranstaltungen', href: event+'veranstaltungen' },
+		{ label: 'Unterlagen', key: 'unterlagen', href: event+'unterlagen' },
+		{ label: 'Media', key: 'media', href: event+'media' },
 	];
 	res.locals.user = req.user;
 	next();

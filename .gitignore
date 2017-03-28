@@ -42,6 +42,6 @@ keystone2-local.js
 
 admin styles
 
-gulpfile.js
+# gulpfile.js
 
 routes/middleware.js

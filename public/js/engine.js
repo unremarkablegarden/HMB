@@ -1,7 +1,5 @@
 
 $(function() {
-  // Cookies.remove('hartmannevents');
-
 
   function bindDesktopLinks() {
     var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
@@ -36,7 +34,6 @@ $(function() {
     backToTop();
     hidePopOver();
     mediaSwitch();
-    // checkLock();
     bindHelp();
     programmView();
     redlineTimer();
@@ -65,8 +62,9 @@ $(function() {
 
   function bindBackbutton() {
     var thisURL = window.location.href;
+    thisURL = thisURL.replace(/\/$/, '');
     var goback = thisURL.replace(/[^\/]+$/,'');
-    console.log('backbutton dynamic link = ' + goback);
+    console.log('backbutton dynamic link = \n' + goback);
     $('.backButton').attr('href', goback);
   }
   bindBackbutton();
@@ -121,42 +119,6 @@ $(function() {
   }
   pdfView();
 
-  function checkLock() {
-    var pw = 'hbhv';
-    var locked = $('.locked');
-    var unlockedCookie = Cookies.get('hartmannevents');
-    if( unlockedCookie == 'unlocked') {
-      locked.hide();
-    }
-    else {
-      unlockedCookie = 'locked';
-      locked.show();
-
-      $('.locked input').unbind().bind('change paste input', function(){
-        var t = $(this);
-        var vallength = t.val().length;
-        if (vallength == 4) {
-          if(t.val() == pw) {
-            // hide onscreen keyboard
-            t.blur()
-            // write cookie
-            Cookies.set('hartmannevents', 'unlocked', { expires: 14 });
-            // hide lock screen
-            $('.unlocker').addClass('unlockit');
-            window.setTimeout(function() {
-              $('.locked').fadeOut(500);
-            }, 500);
-            // show home screen help
-            homeHelp.show();
-          }
-          else {
-            t.shake(2, 10, 500).val('');
-          }
-        }
-      });
-    }
-  }
-  // checkLock();
 
   function redline() {
     // format('DMYYYY')

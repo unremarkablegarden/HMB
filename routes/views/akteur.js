@@ -13,6 +13,7 @@ exports = module.exports = function (req, res) {
 			locals.filters = {
 				akteur: req.params.akteur,
 			};
+			locals.event = res.locals.event;
 
 
 	view.on('init', function(next) {

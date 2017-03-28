@@ -8,7 +8,7 @@ block nav
 		if number
 			- var resolution = 'Resolution ' + data.unterlage.number
 		else
-			- var resolution = data.unterlage.title
+			- var resolution = _.capitalize(data.unterlage.type)
 			
 		h1.title
 			a(href="#popover")

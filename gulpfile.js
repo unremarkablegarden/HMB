@@ -24,11 +24,13 @@ var paths = {
 		all: '/public/js/**/*.js',
 		list: [
 			'./public/js/ratchet/standalone-fix.js',
-			'./public/js/jquery/jquery-2.2.4.min.js',
-			'./public/js/ratchet/ratchet.min.js',
+			// './public/js/jquery/jquery-2.2.4.min.js',
+			// './public/js/ratchet/ratchet.min.js',
 			'./public/js/addtohomescreen/addtohomescreen.min.js',
-			'./public/js/js-cookie/js-cookie.js',
+			// './public/js/js-cookie/js-cookie.js',
 			'./public/js/engine.js',
+      './public/js/pw.js',
+      './public/js/lock.js'
 		],
 		output: './public/js/'
 	}
@@ -50,14 +52,15 @@ gulp.task('sass', function(){
 gulp.task('js', function() {
   gulp.src(paths.js.list, { base: paths.js.output })
     .pipe(concat('script.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(paths.js.output));
 });
 
-gulp.task('runKeystone', shell.task('node keystone1-p81.js'));
+gulp.task('runKeystone', shell.task('node keystone2-local.js'));
 
 gulp.task('watch', [
   'watch:sass',
 ]);
 
 gulp.task('default', ['watch', 'js', 'runKeystone']);
+// gulp.task('default', ['sass', 'js']);

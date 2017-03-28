@@ -10,6 +10,7 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 
 	view.on('init', function(next) {
 

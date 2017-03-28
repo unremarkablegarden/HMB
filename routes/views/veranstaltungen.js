@@ -11,12 +11,14 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 
 	view.on('init', function(next) {
 
 
 		Veranstaltungen.model.find()
-			.sort('type')
+			// .sort('type')
+			.sort({type: 1, title: 1})
 			.populate('akteure')
 			.populate('location')
 			.exec(function(err, result) {

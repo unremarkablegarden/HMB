@@ -13,6 +13,7 @@ exports = module.exports = function (req, res) {
 			locals.filters = {
 				unterlage: req.params.unterlage,
 			};
+			locals.event = res.locals.event;
 
 
 	view.on('init', function(next) {
