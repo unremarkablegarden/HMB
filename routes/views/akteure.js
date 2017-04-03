@@ -10,9 +10,12 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 
 	view.on('init', function(next) {
-		Akteure.model.find().exec(function(err, result) {
+		Akteure.model.find()
+									.sort('lastName')
+									.exec(function(err, result) {
 			locals.data.results = result;
 			// console.log(result)
 			next(err);

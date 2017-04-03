@@ -10,11 +10,12 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 
 	view.on('init', function(next) {
 
 		Locations.model.find()
-			.sort('type')
+			.sort({ 'sort': 1, 'name': 1 })
 			.exec(function(err, result) {
 				locals.data.results = result;
 				// console.log(locals.data.results);

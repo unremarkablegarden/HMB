@@ -6,8 +6,8 @@ block nav
 		+home-button()
 		+popover-title(locals.title)
 
-		nav.bar.bar-tab
-			.tab-item.photos-tab
+		nav.bar.bar-tab.photovideotabs
+			.tab-item.photos-tab.active
 				a(href="#photos")
 					span.icon.ion-ios-photos-outline
 					span.tab-label Photos
@@ -15,23 +15,36 @@ block nav
 				a(href="#videos")
 					span.icon.ion-ios-videocam-outline
 					span.tab-label Videos
+			//- .tab-item.files-tab
+			//- 	a(href="#files")
+			//- 		span.icon.ion-document
+			//- 		span.tab-label Downloads
 
 
 block content
 	.content.galleries
-		+welcomeImage(locals.title, "/images/media.svg")
+		// 	+welcomeImage(locals.title, "/images/media.svg")
 
-		- var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
-		- var noPhotos = "Noch keine Fotos vorhanden"
-		- var noVideos = "Noch keine Videos vorhanden"
-		
+
+		// - var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
+		// - var noPhotos = "Noch keine Fotos vorhanden"
+		// - var noVideos = "Noch keine Videos vorhanden"
+		// - var msg2 = "Hier finden Sie einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
+
+		// div.table-view.card.welcome_info
+		// 	div.table-view-divider
+		// 		h5 Fotos und Videos			
+		// 	div.table-view-cell.normal
+		// 		p= msg2
+
+
 		//- div.card
 		//- 	div.table-view
 		//- 		div.table-view-cell
 		//- 			center
 		//- 				h5 Fotos und Videos
 
-		div.photos
+		div.photos.open
 			each result, i in data.results
 				if result.type == 'photos'
 					div.table-view.card.photo
@@ -40,7 +53,35 @@ block content
 						a(href=modalLink)
 							img(src=src).hero
 							h5= result.title
-		
+							
+		div.videos
+			each result, i in data.results
+				if result.type == 'video'
+					//- div.table-view-cell.normal
+					- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
+					- var W = 288
+					- var H = W * 0.5625
+					- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+					div.table-view.card.video
+						!= embedCode
+				// else
+				// 	div.table-view-card
+				// 		div.table-view-cell
+				// 			p= noVideos
+
+
+		div.files
+			div.card.file
+				div.table-view-divider
+					h5 Downloads
+				ul.table-view
+					each result, i in data.results
+						if result.type == 'file'
+							li.table-view-cell.navigate-right
+								a(href=result.fileUrl, data-ignore="push", download=result.fileUrl)= result.title
+
+
+
 		each result, i in data.results
 			if result.type == 'photos'
 				.modal(id=result.title)
@@ -55,21 +96,7 @@ block content
 									.slide
 										img(src=image.limit(1024,1024))
 
-		div.videos
-			each result, i in data.results
-				if result.type == 'video'
-					//- div.table-view-cell.normal
-					- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
-					- var W = 288
-					- var H = W * 0.5625
-					- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-					div.table-view.card.video
-						!= embedCode
-				else
-					div.table-view-card
-						div.table-view-cell
-							p= noVideos
-			
+
 //- title: { type: String, required: true, index: true, initial: true },
 //- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },
 //- heroImage: { type: Types.CloudinaryImage, dependsOn: { type: 'photos' } },

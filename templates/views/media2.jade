@@ -1,0 +1,93 @@
+extends ../layouts/default
+
+block nav
+	header.bar.bar-nav
+		+back-button('/')
+		+home-button()
+		+popover-title(locals.title)
+
+		nav.bar.bar-tab
+			.tab-item.photos-tab
+				a(href="#photos")
+					span.icon.ion-ios-photos-outline
+					span.tab-label Fotos
+			.tab-item.videos-tab
+				a(href="#videos")
+					span.icon.ion-ios-videocam-outline
+					span.tab-label Videos
+
+
+block content
+	.content.galleries
+		+welcomeImage(locals.title, "/images/media.svg")
+
+		- var after = "Foto- sowie Video-Dokumente werden nach dem Event an dieser Stelle für Sie bereitgestellt."
+		- var noPhotos = "Noch keine Fotos vorhanden"
+		- var noVideos = "Noch keine Videos vorhanden"
+		- var msg2 = "Hier finden Sie nach der Veranstaltung einige Fotos vom Abend sowie unseren kurzen Film zum Thema E-Health."
+
+		div.table-view.card
+			div.table-view-divider
+				h5 Fotos und Videos			
+			div.table-view-cell.normal
+				p= msg2
+
+		- var nPhotos = 0
+		- var nVideos = 0
+		each result, i in data.results
+			if result.type == 'photos'
+				- var nPhotos = nPhotos + 1
+			if result.type == 'video'
+				- var nVideos = nVideos + 1
+				
+		div.photos
+			if nPhotos > 0
+				each result, i in data.results
+					if result.type == 'photos'
+						div.table-view.card.photo
+							- var src = result._.heroImage.fit(640, 640)
+							- var modalLink = '#' + result.title
+							a(href=modalLink)
+								img(src=src).hero
+								h5= result.title
+			else
+				div.table-view.card
+					div.table-view-cell.normal
+						p= noPhotos
+			
+		each result, i in data.results
+			if result.type == 'photos'
+				.modal(id=result.title)
+					header.bar.bar-nav
+						- var modalLink = '#' + result.title
+						a(href=modalLink).icon.icon-close.pull-right
+						h1.title= result.title
+					.content
+						.slider
+							.slide-group
+								each image in result.images
+									.slide
+										img(src=image.limit(1024,1024))
+
+		div.videos
+			if nVideos > 0
+				each result, i in data.results
+					if result.type == 'video'
+						//- div.table-view-cell.normal
+						- var vimeoId = result.vimeoUrl.substr(result.vimeoUrl.lastIndexOf('/') + 1)
+						- var W = 288
+						- var H = W * 0.5625
+						- var embedCode = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0" width="' + W + '" height="' + H + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+						div.table-view.card.video
+							!= embedCode
+			else
+				div.table-view.card
+					div.table-view-cell.normal
+						p= noVideos
+							
+			
+//- title: { type: String, required: true, index: true, initial: true },
+//- type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },
+//- heroImage: { type: Types.CloudinaryImage, dependsOn: { type: 'photos' } },
+//- images: { type: Types.CloudinaryImages, dependsOn: { type: 'photos' } },
+//- vimeoUrl: { type: Types.Url, dependsOn: { type: 'video' }, label: 'Vimeo URL'  }

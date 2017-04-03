@@ -11,12 +11,14 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = selectList;
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 	// var locals.moment = require('moment');
 
 	view.on('init', function(next) {
 
 		Programm.model.find()
 			.sort({date: 1, start: 1})
+			.populate('akteure')
 			.exec(function(err, result) {
 				locals.data.results = result;
 				next(err);

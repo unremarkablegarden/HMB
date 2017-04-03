@@ -17,7 +17,7 @@ var Homepage = new keystone.List('Homepage', {
 Homepage.add({
 	title: { type: String, required: true, index: true, initial: true, label: 'Titel'},
 	subtitle: { type: String, initial: true, label: 'Untertitel' },
-	image: { type: Types.CloudinaryImage },
+	// image: { type: Types.CloudinaryImage },
 });
 
 /**

@@ -10,6 +10,7 @@ exports = module.exports = function (req, res) {
 			locals.section = selectList.toLowerCase();
 			locals.title = 'Hartmannbund';
 			locals.data = { results: [] };
+			locals.event = res.locals.event;
 
 	view.on('init', function(next) {
 		Homepage.model.find().exec(function(err, result) {

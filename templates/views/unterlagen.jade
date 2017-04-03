@@ -11,22 +11,62 @@ block content
 		+welcomeIcon(locals.title, 'ion-document-text')
 		
 		
-		- if( data.results.length )
-			- var type = data.results[0].type
-			h3.heading.content-padded= type
+		//- - if( data.results.length )
+			//- - var type = data.results[0].type
 			
-		div.table-view.card
-			each result, i in data.results
-				div.table-view-cell
-					a(data-transition="slide-in", href="/unterlagen/" + result.slug).navigate-right
-						if result.number
-							span.badge= result.number
-						= result.title
+		- var resolutionen = _.filter(data.results, [ 'type', 'resolutionen' ])
+		- var informationen = _.filter(data.results, [ 'type', 'informationen' ])
+		- var downloads = _.filter(data.results, [ 'type', 'downloads' ])
+		- var total = 0
+		if resolutionen.length
+			- total = total + 1
+		if informationen.length
+			- total = total + 1
+		if downloads.length
+			- total = total + 1
+		// buttons
+		if total > 1
+			.bar.bar-standard.bar-header-secondary
+				.segmented-control
+					if resolutionen.length
+						a(href="#resolutionen").control-item Resolutionen
+					if informationen.length
+						a(href="#informationen").control-item Informationen
+					if downloads.length
+						a(href="#downloads").control-item Downloads
+		
+		if resolutionen.length
+			a(name="resolutionen")
+			h3.heading.content-padded Resolutionen
+			div.table-view.card
+				each result, i in resolutionen
+					div.table-view-cell
+						- var link = locals.event + "unterlagen/" + result.slug
+						a(data-transition="slide-in", href=link).navigate-right
+							if result.number
+								span.badge= result.number
+							= result.title
 
+		if informationen.length
+			a(name="informationen")
+			h3.heading.content-padded Informationen
+			div.table-view.card
+				each result, i in informationen
+					div.table-view-cell
+						- var link = locals.event + "unterlagen/" + result.slug
+						a(data-transition="slide-in", href=link).navigate-right
+							if result.number
+								span.badge= result.number
+							= result.title
 
-
-//- title: { type: String, required: true, index: true, initial: true },
-//- type: { type: Types.Select, options: 'resolutionen, referenzen', default: 'resolutionen', initial: true, index: true },
-//- text: { type: Types.Html, wysiwyg: true, label: 'Info' },
-//- textCode: { type: Types.Code, language: 'html' },
-//- number: { type: Types.Number, label: 'Use for sorting, if necessary' },
+		if downloads.length
+			a(name="downloads")
+			h3.heading.content-padded Downloads
+			div.table-view.card
+				each result, i in downloads
+					div.table-view-cell
+						- var link = locals.event + "unterlagen/" + result.slug
+						a(data-transition="slide-in", href=link).navigate-right
+							if result.number
+								span.badge= result.number
+							= result.title

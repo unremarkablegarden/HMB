@@ -15,10 +15,12 @@ var Media = new keystone.List('Media', {
 
 Media.add({
 	title: { type: String, required: true, index: true, initial: true },
-	type: { type: Types.Select, options: 'photos, video', default: 'photos', index: true, initial: true, required: true },
+	type: { type: Types.Select, options: 'photos, video, file', default: 'photos', index: true, initial: true, required: true },
 	heroImage: { type: Types.CloudinaryImage, dependsOn: { type: 'photos' } },
 	images: { type: Types.CloudinaryImages, dependsOn: { type: 'photos' } },
-	vimeoUrl: { type: Types.Url, dependsOn: { type: 'video' }, label: 'Vimeo URL'  }
+	vimeoUrl: { type: Types.Url, dependsOn: { type: 'video' }, label: 'Vimeo URL'  },
+	fileUrl: { type: Types.Url, dependsOn: { type: 'file' }, label: 'File URL' },
+	// file: { type: Types.S3File, label: 'Upload file' },
 });
 
 /**

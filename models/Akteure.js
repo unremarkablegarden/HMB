@@ -11,12 +11,14 @@ var Akteure = new keystone.List('Akteure', {
 	plural: 'Akteure',
 	autokey: { path: 'slug', from: 'name', unique: false },
 	slug: { path: 'slug', from: 'name', unique: true },
+	defaultSort: 'lastname',
 });
 
 Akteure.add({
-	name: { type: String, required: true, index: true, initial: true },
+	name: { type: String, required: true, index: true, initial: true, label: 'Full name' },
 	bio: { type: Types.Html, wysiwyg: true, height: 150 },
 	image: { type: Types.CloudinaryImage },
+	lastName: { type: String, required: true, initial: true, label: 'Last name (for sorting)' }
 });
 
 /**

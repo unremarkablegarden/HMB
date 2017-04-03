@@ -4,6 +4,8 @@ h1 {
 
 .content {
   padding-bottom: 1em;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .btn.home-button {
@@ -396,17 +398,21 @@ img.portrait, div.portrait {
   height: auto;
 }
 .photos {
+  // right: -100vw;
+  min-height: 60vh;
+}
+.videos, .files {
+  // margin-bottom: 50px;
   right: -100vw;
 }
-.videos {
-  margin-bottom: 50px;
-  right: -100vw;
-}
-.photos, .videos {
-  // margin-top: 10px;
+.photos, .videos, .files {
+  margin-top: 30px;
   margin-bottom: 60px;
-  display: none;
   position: relative;
+}
+
+.videos, .files {
+  display: none;
 }
 
 .modal .content {
@@ -414,6 +420,39 @@ img.portrait, div.portrait {
   display: flex;
   align-items: center;
 }
+
+.modal.active {
+  // z-index: 11 !important;
+}
+.modal.active .content {
+  // z-index: 11 !important;
+  // padding-top: 0;
+  // top: 44px;
+}
+.modal.active .bar {
+  // z-index: 20 !important;
+}
+
+.modal header.bar.bar-nav {
+  -webkit-transform: translateZ(0);
+}
+.modal header .title {
+  position: relative;
+  z-index: 20;
+  padding-left: 54px;
+}
+.modal header .icon-close {
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: -10px;
+  z-index: 999;
+}
+
+.slider .slide-group .slide {
+  vertical-align: middle;
+}
+
+
 .slider img {
   max-width: 100%;
   height: auto;

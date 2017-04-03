@@ -15,27 +15,31 @@ block nav
 			a(href="#").timeview
 				span.icon.ion-clock
 				span.tab-label Time view
-		.tab-item.pdf
-			a(href="#").pdfview
-				span.icon.ion-document-text
-				span.tab-label PDF
+		//- .tab-item.pdf
+		//- 	a(href="#").pdfview
+		//- 		span.icon.ion-document-text
+		//- 		span.tab-label PDF
 
 block content
 	.content.programm
 	
-		.pdf-viewer
-			iframe(src='https://drive.google.com/file/d/0B1jo0_NcNMEgblBmR2xxUnUwRVE/preview', style='width:100%; height:100%;', frameborder='0').loading 
-			//- https://drive.google.com/file/d/0B1jo0_NcNMEgblBmR2xxUnUwRVE/preview
-			//- http://docs.google.com/gview?url=http://events.hartmannbund.de/files/Programm.pdf&embedded=true
-
+		//- .pdf-viewer
+		//- 	iframe(src='https://drive.google.com/file/d/0B1jo0_NcNMEgblBmR2xxUnUwRVE/preview', style='width:100%; height:100%;', frameborder='0').loading 
+			
 	
 		.item-view.view
 			+welcomeIcon(locals.title, 'ion-clipboard')
 			
 			div.table-view.card
 				- var date
+				- console.log('---------------')
 				each result, i in data.results
+					//- - var startTime = result.start.split('.')
+					//- - var startH = startTime[0]
+					//- - var startM = startTime[1]
+					//- - newDate = String(result.date.setHours(startH,startM,0,0))
 					- newDate = String(result.date)
+					//- - console.log(result.title + ': ' + result.date)
 					if date !== newDate
 						- date = newDate
 						div.table-view-cell.table-view-divider
@@ -49,6 +53,13 @@ block content
 						div.media-body
 							.program-title= result.title
 							p.more!= result.content
+							if result.akteure.length
+								- console.log('------')
+								- console.log(result.akteure)
+								ul
+									each akt, j in result.akteure
+										li
+											a(href="../akteure/#{akt.slug}")= akt.name
 
 
 		.time-view.view
